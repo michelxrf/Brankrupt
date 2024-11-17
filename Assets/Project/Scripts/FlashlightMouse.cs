@@ -24,7 +24,7 @@ public class FlashlightMouse : MonoBehaviour
     Vector3 mousePos;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         Switch_light(false);
         battery_left = max_battery;
@@ -32,13 +32,18 @@ public class FlashlightMouse : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         Process_Input();
         PositionLightAtMouse();
         Drain_Battery();
     }
-    void Drain_Battery()
+
+    public void Kill_Battery()
+    {
+        battery_left = 0f;
+    }
+    private void Drain_Battery()
     {
         hud.Update_Battery(battery_left / max_battery);
         if (is_on)
@@ -53,7 +58,7 @@ public class FlashlightMouse : MonoBehaviour
         }
     }
 
-    void Process_Input()
+    private void Process_Input()
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
@@ -63,7 +68,7 @@ public class FlashlightMouse : MonoBehaviour
         }
     }
 
-    void Switch_light(bool new_state)
+    private void Switch_light(bool new_state)
     {
         is_on = new_state;
 
@@ -71,7 +76,7 @@ public class FlashlightMouse : MonoBehaviour
         lightTrail.enabled = is_on;
     }
 
-    void PositionLightAtMouse()
+    private void PositionLightAtMouse()
     {
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0f;

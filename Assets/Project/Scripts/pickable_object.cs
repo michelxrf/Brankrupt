@@ -7,6 +7,8 @@ public class pickable_object : MonoBehaviour
     [SerializeField] string item_name;
     [SerializeField] GameObject interaction_tip;
 
+    private bool can_interact = false;
+
     private void Awake()
     {
         interaction_tip.SetActive(false);
@@ -17,6 +19,7 @@ public class pickable_object : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             interaction_tip.SetActive(true);
+            can_interact = true;
         }
     }
 
@@ -25,12 +28,13 @@ public class pickable_object : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             interaction_tip.SetActive(false);
+            can_interact = false;
         }
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && interaction_tip.activeInHierarchy)
+        if (Input.GetKeyDown(KeyCode.E) && can_interact)
         {
             GameManager.Instance.Add_Item_To_Inventory(item_name);
             Destroy(gameObject);
