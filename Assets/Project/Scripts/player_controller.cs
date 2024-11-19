@@ -6,24 +6,16 @@ using UnityEngine;
 public class player_controller : MonoBehaviour
 {
     [SerializeField] float walk_speed;
-    [SerializeField] float run_speed;
-    [SerializeField] float max_stamina;
-    [SerializeField] float stamina_drain;
-    [SerializeField] float stamina_recovery;
-    [SerializeField] float batery_left;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Animator animator;
-    [SerializeField] FlashlightMouse flashlight;
+    [SerializeField] SpriteRenderer sprite;
 
-    private bool is_flashlight_on;
-    private bool is_tired;
     private Vector2 direction;
-    private bool want_to_run;
-    private float current_stamina;
+    Camera cam;
 
     private void Awake()
     {
-        current_stamina = max_stamina;
+        cam = Camera.main;
     }
 
     private void Update()
@@ -38,61 +30,29 @@ public class player_controller : MonoBehaviour
 
     private void Move()
     {
-        if (want_to_run && !is_tired)
-        {
-            animator.SetBool("is_running", true);
+        rb.velocity = direction * walk_speed * Time.deltaTime;
+     }
+       
 
-            rb.velocity = direction * run_speed * Time.deltaTime;
-            current_stamina = Mathf.Max(current_stamina - Time.deltaTime * stamina_drain, 0f);
-
-            if (current_stamina == 0f)
-            {
-                is_tired = true;
-            }
-        }
-        else
-        {
-            animator.SetBool("is_running", false);
-
-            rb.velocity = direction * walk_speed * Time.deltaTime;
-            current_stamina = Mathf.Min(current_stamina + Time.deltaTime * stamina_recovery, max_stamina);
-
-            if (current_stamina > max_stamina * .25)
-            {
-                is_tired = false;
-            }
-        }
-
-    }
-
-    public void Look_At(Vector2 look_pos)
+    private void Look_At(Vector2 look_pos)
     {
-        Vector2 look_direction = (look_pos - (Vector2)transform.position).normalized;
-
-        animator.SetFloat("direction_x", look_direction.x);
-        animator.SetFloat("direction_y", look_direction.y);
+        if((look_pos.x - transform.position.x) < 0)
+            sprite.flipX = true;
+        else sprite.flipX = false;
     }
 
     private void ProcessInput()
-    { 
+    {   
+        Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0f;
+
         direction.x = Input.GetAxisRaw("Horizontal");
         direction.y = Input.GetAxisRaw("Vertical");
-
-        if (direction.magnitude == 0)
-        {
-            animator.SetBool("is_walking", false);
-            animator.SetBool("is_running", false);
-            return;
-        }
-
-        animator.SetBool("is_walking", true);
-
-        want_to_run = Input.GetKey(KeyCode.LeftShift);
-
-        animator.SetFloat("direction_x", direction.x);
-        animator.SetFloat("direction_y", direction.y);
-
         direction.Normalize();
+
+        animator.SetBool("is_walking", direction.magnitude != 0);
+        
+        Look_At(mousePos);
     }
 
 }
