@@ -12,7 +12,6 @@ public class FlashlightMouse : MonoBehaviour
     [SerializeField] Light2D lightFocus;
     [SerializeField] Light2D lightTrail;
     [SerializeField] player_controller player;
-    [SerializeField] Camera cam;
     [SerializeField] float range;
     [SerializeField] float battery_drain;
     [SerializeField] AudioSource click;
@@ -22,6 +21,12 @@ public class FlashlightMouse : MonoBehaviour
     private float battery_left;
     private bool is_on;
     Vector3 mousePos;
+    Camera cam;
+
+    private void Awake()
+    {
+        cam = Camera.main;
+    }
 
     // Start is called before the first frame update
     private void Start()
@@ -38,7 +43,6 @@ public class FlashlightMouse : MonoBehaviour
         PositionLightAtMouse();
         Drain_Battery();
     }
-
     public void Kill_Battery()
     {
         battery_left = 0f;
@@ -49,7 +53,6 @@ public class FlashlightMouse : MonoBehaviour
         if (is_on)
         {
             battery_left -= Time.deltaTime * battery_drain;
-            UnityEngine.Debug.Log(battery_left);
 
             if (battery_left <= 0)
             {
@@ -80,6 +83,7 @@ public class FlashlightMouse : MonoBehaviour
     {
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0f;
+
         Vector2 direction = mousePos - player.transform.position;
         direction.Normalize();
 
@@ -91,7 +95,6 @@ public class FlashlightMouse : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(player.transform.position, direction, Mathf.Min((mousePos - player.transform.position).magnitude, range));
 
         // situation 1: wall in front
-        // TODO: move the light a pixel closer to the player
         if (hit.collider != null)
         {
             lightFocus.transform.position = hit.point - (direction * 0.01f);
@@ -109,7 +112,5 @@ public class FlashlightMouse : MonoBehaviour
             lightTrail.pointLightOuterRadius = (mousePos - player.transform.position).magnitude;
             lightFocus.transform.position = mousePos;
         }
-
-        player.Look_At(lightFocus.transform.position);
     }
 }
