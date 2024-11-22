@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public bool is_paused;
+    public bool player_busy;
     public static GameManager Instance { get; private set; } 
     private List<string> inventory = new List<string>();
 
     private void Awake()
-    {
+    { 
+
         if (Instance != null && Instance != this)
         {
             Destroy(this);
@@ -21,12 +24,14 @@ public class GameManager : MonoBehaviour
         
     }
 
-    private void Update()
+    public void Pause()
     {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            Log_All_Items();
-        }
+        is_paused = true;
+    }
+
+    public void Unpause()
+    {
+        is_paused = false;
     }
 
     public bool Has_Item_On_Inventory(string name)

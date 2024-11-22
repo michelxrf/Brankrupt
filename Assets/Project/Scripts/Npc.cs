@@ -39,11 +39,14 @@ public class Npc : MonoBehaviour
 
     private void Interaction()
     {
+        if (GameManager.Instance.player_busy || GameManager.Instance.is_paused)
+            return;
+
         if(Input.GetKeyDown(KeyCode.E) && can_interact)
         {
             ConversationManager.Instance.StartConversation(conversation);
+            GameManager.Instance.player_busy = true;
         }
-        
     }
 
 }

@@ -11,6 +11,7 @@ public class FlashlightMouse : MonoBehaviour
 {
     [SerializeField] Light2D lightFocus;
     [SerializeField] Light2D lightTrail;
+    [SerializeField] Light2D LightLamp;
     [SerializeField] player_controller player;
     [SerializeField] float range;
     [SerializeField] float battery_drain;
@@ -39,6 +40,9 @@ public class FlashlightMouse : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (GameManager.Instance.is_paused || GameManager.Instance.player_busy)
+            return;
+
         Process_Input();
         PositionLightAtMouse();
         Drain_Battery();
@@ -77,6 +81,7 @@ public class FlashlightMouse : MonoBehaviour
 
         lightFocus.enabled = is_on;
         lightTrail.enabled = is_on;
+        LightLamp.enabled = is_on;
     }
 
     private void PositionLightAtMouse()
@@ -84,32 +89,29 @@ public class FlashlightMouse : MonoBehaviour
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0f;
 
-        Vector2 direction = mousePos - player.transform.position;
+        Vector2 direction = mousePos - transform.position;
         direction.Normalize();
 
-        float angleRad = Mathf.Atan2(mousePos.y - player.transform.position.y, mousePos.x - player.transform.position.x);
-        float angleDeg = (180 / Mathf.PI) * angleRad - 90;
+        lightTrail.transform.up = direction;
 
-        lightTrail.transform.rotation = Quaternion.Euler(0f, 0f, angleDeg);
-
-        RaycastHit2D hit = Physics2D.Raycast(player.transform.position, direction, Mathf.Min((mousePos - player.transform.position).magnitude, range));
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, Mathf.Min((mousePos - transform.position).magnitude, range));
 
         // situation 1: wall in front
         if (hit.collider != null)
         {
             lightFocus.transform.position = hit.point - (direction * 0.01f);
-            lightTrail.pointLightOuterRadius = (hit.point - (Vector2)player.transform.position).magnitude;
+            lightTrail.pointLightOuterRadius = (hit.point - (Vector2)transform.position).magnitude;
         }
         // 2: out of range
-        else if ((mousePos - player.transform.position).magnitude > range)
+        else if ((mousePos - transform.position).magnitude > range)
         {
-            lightFocus.transform.position = range * direction + (Vector2)(player.transform.position);
+            lightFocus.transform.position = range * direction + (Vector2)(transform.position);
             lightTrail.pointLightOuterRadius = range;
         }
         // 3: in range
         else
         {
-            lightTrail.pointLightOuterRadius = (mousePos - player.transform.position).magnitude;
+            lightTrail.pointLightOuterRadius = (mousePos - transform.position).magnitude;
             lightFocus.transform.position = mousePos;
         }
     }
