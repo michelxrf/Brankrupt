@@ -10,6 +10,7 @@ public class player_controller : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Animator animator;
     [SerializeField] SpriteRenderer sprite;
+    [SerializeField] GameObject flashlight;
 
     private Vector2 direction;
     Camera cam;
@@ -45,8 +46,21 @@ public class player_controller : MonoBehaviour
         animator.SetBool("is_walking", direction.magnitude != 0);
 
         if ((mousePos.x - transform.position.x) < 0)
+        {
             sprite.flipX = true;
-        else sprite.flipX = false;
+            FlipFlashlight(true);
+        }
+        else
+        {
+            sprite.flipX = false;
+            FlipFlashlight(false);
+        }
+            
+    }
+
+    private void FlipFlashlight(bool is_flip)
+    {
+
     }
 
     private void ProcessInput()
