@@ -4537,17 +4537,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6999060243369819280, guid: 837b1e54f28282745b9ea136b1074440, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 7906131074778482615, guid: 837b1e54f28282745b9ea136b1074440, type: 3}
       propertyPath: m_Intensity
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7906131074778482615, guid: 837b1e54f28282745b9ea136b1074440, type: 3}
       propertyPath: m_FalloffIntensity
-      value: 0.5
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 7906131074778482615, guid: 837b1e54f28282745b9ea136b1074440, type: 3}
       propertyPath: m_PointLightOuterRadius
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

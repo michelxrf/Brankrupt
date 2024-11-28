@@ -19,6 +19,7 @@ public class FlashlightMouse : MonoBehaviour
     [SerializeField] hud_manager hud;
     [SerializeField] float max_battery;
 
+    private Vector3 flashlightInitialPos;
     private float battery_left;
     private bool is_on;
     Vector3 mousePos;
@@ -27,6 +28,7 @@ public class FlashlightMouse : MonoBehaviour
     private void Awake()
     {
         cam = Camera.main;
+        flashlightInitialPos = transform.localPosition;
     }
 
     // Start is called before the first frame update
@@ -84,6 +86,18 @@ public class FlashlightMouse : MonoBehaviour
         LightLamp.enabled = is_on;
     }
 
+    private void flipFlashlight(Vector2 direction)
+    {
+        if (direction.x < 0f)
+        {
+            transform.localPosition = new Vector2(-flashlightInitialPos.x, flashlightInitialPos.y);
+        }
+        else if (direction.x > 0f)
+        {
+            transform.localPosition = new Vector2(flashlightInitialPos.x, flashlightInitialPos.y);
+        }
+    }
+
     private void PositionLightAtMouse()
     {
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
@@ -91,6 +105,8 @@ public class FlashlightMouse : MonoBehaviour
 
         Vector2 direction = mousePos - transform.position;
         direction.Normalize();
+
+        flipFlashlight(mousePos - transform.parent.transform.position);
 
         lightTrail.transform.up = direction;
 
