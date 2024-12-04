@@ -160,8 +160,6 @@ namespace DialogueEditor
 
             if (OnConversationEnded != null)
                 OnConversationEnded.Invoke();
-
-            GameManager.Instance.player_busy = false;
         }
 
         public void SelectNextOption()
