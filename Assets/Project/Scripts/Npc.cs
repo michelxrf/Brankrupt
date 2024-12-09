@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DialogueEditor;
@@ -6,21 +7,44 @@ using UnityEngine;
 public class Npc : MonoBehaviour
 {
     [SerializeField] GameObject interaction_tip;
-    [SerializeField] NPCConversation conversation;
+    [SerializeField] bool triggerInstantly = false;
     
+    public int currentConversationIndex;
+    public NPCConversation[] conversationList;
+
+    private bool playerInRange = false;
     private bool can_interact = false;
     private void Awake()
     {
+        can_interact = triggerInstantly;
+        if (conversationList.Length < 1)
+        {
+            Debug.LogError("NPC has no conversation");
+        }
+            
+
         interaction_tip.SetActive(false);
         ConversationManager.OnConversationEnded += ConversationEnded;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("ontriggerEnter");
         if (collision.gameObject.CompareTag("Player"))
         {
-            interaction_tip.SetActive(true);
-            can_interact=true;
+            playerInRange = true;
+            if (triggerInstantly)
+            {
+                Debug.Log("CallInteraction");
+                Interaction();
+                can_interact = false;
+                Debug.Log("FinishedInteraction");
+            }
+            else
+            {
+                interaction_tip.SetActive(true);
+                can_interact = true;
+            }
         }
     }
 
@@ -31,10 +55,19 @@ public class Npc : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        Debug.Log("ontriggerExit");
         if (collision.gameObject.CompareTag("Player"))
         {
-            interaction_tip.SetActive(false);
-            can_interact=false;
+            playerInRange = false;
+            if (triggerInstantly)
+            {
+                can_interact = true;
+            }
+            else
+            {
+                interaction_tip.SetActive(false);
+                can_interact = false;
+            }
         }
     }
 
@@ -43,9 +76,9 @@ public class Npc : MonoBehaviour
         if (GameManager.Instance.player_busy || GameManager.Instance.is_paused)
             return;
 
-        if(Input.GetKeyDown(KeyCode.E) && can_interact)
+        if((Input.GetKeyDown(KeyCode.E) && can_interact) || triggerInstantly && playerInRange && can_interact)
         {
-            ConversationManager.Instance.StartConversation(conversation);
+            ConversationManager.Instance.StartConversation(conversationList[currentConversationIndex]);
             loadInventoryIntoConverstation();
             GameManager.Instance.player_busy = true;
         }
@@ -63,6 +96,19 @@ public class Npc : MonoBehaviour
     private void ConversationEnded()
     {
         GameManager.Instance.player_busy = false;
+    }
+
+    public void changeConversationIndexTo(int index)
+    {
+        if (conversationList.Length < index)
+        {
+            currentConversationIndex = index;
+        }
+        else
+        {
+            currentConversationIndex = 0;
+            Debug.Log("invalid conversation index");
+        }
     }
 
 }
