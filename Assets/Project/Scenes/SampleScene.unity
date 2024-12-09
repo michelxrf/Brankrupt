@@ -459,6 +459,18 @@ PrefabInstance:
       propertyPath: conversation
       value: 
       objectReference: {fileID: 1733706664}
+    - target: {fileID: 7641283481131472940, guid: 43bf7056eb2234f46a44074c36c87fe7, type: 3}
+      propertyPath: triggerInstantly
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7641283481131472940, guid: 43bf7056eb2234f46a44074c36c87fe7, type: 3}
+      propertyPath: conversationList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7641283481131472940, guid: 43bf7056eb2234f46a44074c36c87fe7, type: 3}
+      propertyPath: conversationList.Array.data[0]
+      value: 
+      objectReference: {fileID: 1733706664}
     m_RemovedComponents:
     - {fileID: 5841475928395744242, guid: 43bf7056eb2234f46a44074c36c87fe7, type: 3}
     - {fileID: 130396062897544280, guid: 43bf7056eb2234f46a44074c36c87fe7, type: 3}
@@ -4572,6 +4584,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fac9ef12c0a901e479402a629c88f415, type: 3}
+--- !u!114 &1666113821 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4752530266547868299, guid: 43bf7056eb2234f46a44074c36c87fe7, type: 3}
+  m_PrefabInstance: {fileID: 8100768295546816085}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83189876d4d389f43b7dd2e925aa112e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1705711705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4606,7 +4629,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8617395214091061898, guid: 48f92e66addbfbc46896fca0c2481f74, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.551
+      value: 1.01
       objectReference: {fileID: 0}
     - target: {fileID: 8617395214091061898, guid: 48f92e66addbfbc46896fca0c2481f74, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5549,6 +5572,14 @@ PrefabInstance:
       propertyPath: Event.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7641283481131472940, guid: 43bf7056eb2234f46a44074c36c87fe7, type: 3}
+      propertyPath: conversationList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7641283481131472940, guid: 43bf7056eb2234f46a44074c36c87fe7, type: 3}
+      propertyPath: conversationList.Array.data[0]
+      value: 
+      objectReference: {fileID: 1666113821}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
