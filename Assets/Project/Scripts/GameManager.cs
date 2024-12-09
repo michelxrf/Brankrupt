@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using DialogueEditor;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public bool is_paused;
     public bool player_busy;
-    public static GameManager Instance { get; private set; } 
-    private List<string> inventory = new List<string>();
+    public static GameManager Instance { get; private set; }
+    public List<string> inventory = new List<string>();
+
+    public hud_manager hud;
 
     private void Awake()
-    { 
+    {
 
         if (Instance != null && Instance != this)
         {
@@ -20,8 +23,8 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(this);
-        }        
-        
+        }
+
     }
 
     public void Pause()
@@ -36,22 +39,25 @@ public class GameManager : MonoBehaviour
 
     public bool Has_Item_On_Inventory(string name)
     {
-        return inventory.Contains(name);
+        return inventory.Contains(name.ToLower());
     }
 
     public void Add_Item_To_Inventory(string name)
     {
-        inventory.Add(name);
+        inventory.Add(name.ToLower());
+        hud.Update_Inventory();
     }
 
     public void Remove_Item_From_Inventory(string name)
     {
-        inventory.Remove(name);
+        inventory.Remove(name.ToLower());
+        hud.Update_Inventory();
     }
 
     public void Clear_Inventory()
     {
         inventory.Clear();
+        hud.Update_Inventory();
     }
 
     public void Log_All_Items()

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -27,6 +28,7 @@ public class FlashlightMouse : MonoBehaviour
 
     private void Awake()
     {
+        hud = FindAnyObjectByType<hud_manager>();
         cam = Camera.main;
         flashlightInitialPos = transform.localPosition;
     }
@@ -34,6 +36,7 @@ public class FlashlightMouse : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        hud.ShowBatteryLevel();
         Switch_light(false);
         battery_left = max_battery;
         lightTrail.pointLightOuterRadius = range;

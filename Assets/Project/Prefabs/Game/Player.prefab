@@ -359,6 +359,7 @@ MonoBehaviour:
   rb: {fileID: 1630761639126465336}
   animator: {fileID: 5316116117085644224}
   sprite: {fileID: 3690476716868882682}
+  flashlight: {fileID: 3085235595701090019}
 --- !u!1001 &658167842065046387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -415,13 +416,33 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 4588260289022241322}
+    - target: {fileID: 4997728203185344196, guid: 621c62fda03343c4e8718e47228b1796, type: 3}
+      propertyPath: LightLamp
+      value: 
+      objectReference: {fileID: 7906131074778482615}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 621c62fda03343c4e8718e47228b1796, type: 3}
+--- !u!1 &3085235595701090019 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2590340852072590736, guid: 621c62fda03343c4e8718e47228b1796, type: 3}
+  m_PrefabInstance: {fileID: 658167842065046387}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5566012726715262877 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4907862839788961006, guid: 621c62fda03343c4e8718e47228b1796, type: 3}
   m_PrefabInstance: {fileID: 658167842065046387}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7906131074778482615 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7249230214109469892, guid: 621c62fda03343c4e8718e47228b1796, type: 3}
+  m_PrefabInstance: {fileID: 658167842065046387}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

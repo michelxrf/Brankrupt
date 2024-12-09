@@ -32,7 +32,14 @@ public class player_controller : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move();
+        if(!GameManager.Instance.player_busy && !GameManager.Instance.is_paused)
+        {
+            Move();
+        }
+        else
+        {
+            animator.SetBool("is_walking", false);
+        }
     }
 
     private void Move()
