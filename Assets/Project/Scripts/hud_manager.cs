@@ -12,6 +12,11 @@ public class hud_manager : MonoBehaviour
     private void Awake()
     {
         battery_level.gameObject.SetActive(false);
+        
+    }
+
+    private void Start()
+    {
         GameManager.Instance.hud = this;
         Update_Inventory();
     }
