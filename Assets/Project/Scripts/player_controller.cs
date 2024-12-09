@@ -18,13 +18,17 @@ public class player_controller : MonoBehaviour
     private void Awake()
     {
         cam = Camera.main;
+    }
 
+    private void Start()
+    {
         if (TransitionManager.Instance.has_transitioned == true)
         {
             transform.position = TransitionManager.Instance.transitionToPosition;
             TransitionManager.Instance.has_transitioned = false;
         }
     }
+
     private void Update()
     {
         ProcessInput();

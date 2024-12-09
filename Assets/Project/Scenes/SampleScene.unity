@@ -4443,7 +4443,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Event:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1742221404}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Remove_Item_From_Inventory
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: battery
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1742221404}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Add_Item_To_Inventory
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: key
+          m_BoolArgument: 0
+        m_CallState: 2
   NodeID: 6
   TMPFont: {fileID: 0}
   Icon: {fileID: 0}
@@ -4548,6 +4572,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fac9ef12c0a901e479402a629c88f415, type: 3}
+--- !u!1001 &1705711705
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1703882391447302050, guid: 48f92e66addbfbc46896fca0c2481f74, type: 3}
+      propertyPath: m_Name
+      value: MapTransition
+      objectReference: {fileID: 0}
+    - target: {fileID: 8617395214091061898, guid: 48f92e66addbfbc46896fca0c2481f74, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.159148
+      objectReference: {fileID: 0}
+    - target: {fileID: 8617395214091061898, guid: 48f92e66addbfbc46896fca0c2481f74, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.777182
+      objectReference: {fileID: 0}
+    - target: {fileID: 8617395214091061898, guid: 48f92e66addbfbc46896fca0c2481f74, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8617395214091061898, guid: 48f92e66addbfbc46896fca0c2481f74, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8617395214091061898, guid: 48f92e66addbfbc46896fca0c2481f74, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8617395214091061898, guid: 48f92e66addbfbc46896fca0c2481f74, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8617395214091061898, guid: 48f92e66addbfbc46896fca0c2481f74, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8617395214091061898, guid: 48f92e66addbfbc46896fca0c2481f74, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8617395214091061898, guid: 48f92e66addbfbc46896fca0c2481f74, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8617395214091061898, guid: 48f92e66addbfbc46896fca0c2481f74, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 48f92e66addbfbc46896fca0c2481f74, type: 3}
 --- !u!1 &1733706663
 GameObject:
   m_ObjectHideFlags: 0
@@ -4577,8 +4658,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83189876d4d389f43b7dd2e925aa112e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentIDCounter: 7
-  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":6}],"EditorInfo":{"isRoot":false,"xPos":576,"yPos":179},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"YES","parentUIDs":[0],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":5}],"EditorInfo":{"isRoot":false,"xPos":895,"yPos":170},"ID":4,"ParamActions":[],"TMPFontGUID":null,"Text":"NO","parentUIDs":[0],"SpeechUID":-1}],"Parameters":[{"__type":"EditableBoolParameter:#DialogueEditor","ParameterName":"Item\/battery","BoolValue":false}],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[{"__type":"EditableBoolCondition:#DialogueEditor","ParameterName":"Item\/battery","CheckType":0,"RequiredValue":true}],"NodeUID":3},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[{"__type":"EditableBoolCondition:#DialogueEditor","ParameterName":"Item\/battery","CheckType":0,"RequiredValue":false}],"NodeUID":4}],"EditorInfo":{"isRoot":true,"xPos":735,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":null,"parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Battery?","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":903,"yPos":320},"ID":5,"ParamActions":[],"TMPFontGUID":null,"Text":null,"parentUIDs":[4],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":559,"yPos":357},"ID":6,"ParamActions":[],"TMPFontGUID":null,"Text":null,"parentUIDs":[3],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
+  CurrentIDCounter: 9
+  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":6}],"EditorInfo":{"isRoot":false,"xPos":152.5,"yPos":179},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"YES","parentUIDs":[0],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":5}],"EditorInfo":{"isRoot":false,"xPos":470.5,"yPos":168},"ID":4,"ParamActions":[],"TMPFontGUID":null,"Text":"NO","parentUIDs":[0],"SpeechUID":-1}],"Parameters":[{"__type":"EditableBoolParameter:#DialogueEditor","ParameterName":"Item\/battery","BoolValue":false}],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[{"__type":"EditableBoolCondition:#DialogueEditor","ParameterName":"Item\/battery","CheckType":0,"RequiredValue":true}],"NodeUID":3},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[{"__type":"EditableBoolCondition:#DialogueEditor","ParameterName":"Item\/battery","CheckType":0,"RequiredValue":false}],"NodeUID":4}],"EditorInfo":{"isRoot":true,"xPos":311.5,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":null,"parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Battery?","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":633.5,"yPos":318},"ID":5,"ParamActions":[],"TMPFontGUID":null,"Text":null,"parentUIDs":[4],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Shame","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":135.5,"yPos":356},"ID":6,"ParamActions":[],"TMPFontGUID":null,"Text":"I''ll
+    give you a key for it!","parentUIDs":[3],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
   saveVersion: 110
   DefaultName: 
   DefaultSprite: {fileID: 0}
@@ -4593,7 +4675,31 @@ MonoBehaviour:
   EndConversationFont: {fileID: 0}
   Event:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1742221404}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Remove_Item_From_Inventory
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: battery
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1742221404}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Add_Item_To_Inventory
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: key
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1733706665
 Transform:
   m_ObjectHideFlags: 0
@@ -4602,8 +4708,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1733706663}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.408519, y: -0.35863018, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4641,6 +4747,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1742221404 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6201111041680547973, guid: e3e706630b1efd446ab3b4fa49a5e061, type: 3}
+  m_PrefabInstance: {fileID: 6335861731142365448}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3c37bcd4f9de434782fff4516b7ea2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1899227916 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3900108755196472087, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca, type: 3}
@@ -5001,6 +5118,14 @@ PrefabInstance:
     - target: {fileID: 7088062074219937488, guid: bef254b058572f84498f006c44e2dd6b, type: 3}
       propertyPath: m_ReferenceResolution.y
       value: 720
+      objectReference: {fileID: 0}
+    - target: {fileID: 8481626328190806023, guid: bef254b058572f84498f006c44e2dd6b, type: 3}
+      propertyPath: m_Name
+      value: Inventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 9113653237413915825, guid: bef254b058572f84498f006c44e2dd6b, type: 3}
+      propertyPath: m_text
+      value: Init
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5754,3 +5879,4 @@ SceneRoots:
   - {fileID: 540366247}
   - {fileID: 1417329022}
   - {fileID: 298296373}
+  - {fileID: 1705711705}
