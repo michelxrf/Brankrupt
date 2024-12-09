@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DialogueEditor;
@@ -9,6 +10,7 @@ public class GameManager : MonoBehaviour
     public bool player_busy;
     public static GameManager Instance { get; private set; }
     public List<string> inventory = new List<string>();
+    public Dictionary<Guid, int> npc_current_index_dict = new Dictionary<Guid, int>();
 
     public hud_manager hud;
 

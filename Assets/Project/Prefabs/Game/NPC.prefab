@@ -137,7 +137,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interaction_tip: {fileID: 3453649299202496860}
-  conversation: {fileID: 4752530266547868299}
+  triggerInstantly: 0
+  currentConversationIndex: 0
+  conversationList: []
 --- !u!81 &3579401101538932219
 AudioListener:
   m_ObjectHideFlags: 0

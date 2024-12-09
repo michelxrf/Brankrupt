@@ -8,6 +8,7 @@ public class Npc : MonoBehaviour
 {
     [SerializeField] GameObject interaction_tip;
     [SerializeField] bool triggerInstantly = false;
+    [SerializeField] int id;
     
     public int currentConversationIndex;
     public NPCConversation[] conversationList;
@@ -16,6 +17,10 @@ public class Npc : MonoBehaviour
     private bool can_interact = false;
     private void Awake()
     {
+        if (id == 0)
+        {
+                Debug.LogError("Use a non 0 id for each NPC");
+        }
         can_interact = triggerInstantly;
         if (conversationList.Length < 1)
         {
