@@ -4584,13 +4584,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: MapTransition
       objectReference: {fileID: 0}
+    - target: {fileID: 2954517575263907513, guid: 48f92e66addbfbc46896fca0c2481f74, type: 3}
+      propertyPath: mapIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2954517575263907513, guid: 48f92e66addbfbc46896fca0c2481f74, type: 3}
+      propertyPath: instantTransition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2954517575263907513, guid: 48f92e66addbfbc46896fca0c2481f74, type: 3}
+      propertyPath: mapTransitionPosition.x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2954517575263907513, guid: 48f92e66addbfbc46896fca0c2481f74, type: 3}
+      propertyPath: mapTransitionPosition.y
+      value: -6
+      objectReference: {fileID: 0}
     - target: {fileID: 8617395214091061898, guid: 48f92e66addbfbc46896fca0c2481f74, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.159148
+      value: 3.93
       objectReference: {fileID: 0}
     - target: {fileID: 8617395214091061898, guid: 48f92e66addbfbc46896fca0c2481f74, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.777182
+      value: 2.551
       objectReference: {fileID: 0}
     - target: {fileID: 8617395214091061898, guid: 48f92e66addbfbc46896fca0c2481f74, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5142,11 +5158,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4889479881068025331, guid: 837b1e54f28282745b9ea136b1074440, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.73
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 4889479881068025331, guid: 837b1e54f28282745b9ea136b1074440, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.4
+      value: -0.08
       objectReference: {fileID: 0}
     - target: {fileID: 4889479881068025331, guid: 837b1e54f28282745b9ea136b1074440, type: 3}
       propertyPath: m_LocalPosition.z
