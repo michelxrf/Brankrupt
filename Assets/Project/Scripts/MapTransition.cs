@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using DialogueEditor;
-using UnityEditor.SearchService;
 using UnityEngine;
 
 public class MapTransition : MonoBehaviour

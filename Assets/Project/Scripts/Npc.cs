@@ -9,10 +9,12 @@ public class Npc : MonoBehaviour
     [SerializeField] GameObject interaction_tip;
     [SerializeField] bool triggerInstantly = false;
     [SerializeField] int id;
+    [SerializeField] bool single_use = false;
     
     public int currentConversationIndex;
     public NPCConversation[] conversationList;
 
+    private bool disabled = false;
     private bool playerInRange = false;
     private bool can_interact = false;
     private void Awake()
@@ -34,6 +36,9 @@ public class Npc : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (disabled)
+            { return; }
+
         Debug.Log("ontriggerEnter");
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -66,7 +71,7 @@ public class Npc : MonoBehaviour
             playerInRange = false;
             if (triggerInstantly)
             {
-                can_interact = true;
+                can_interact = false;
             }
             else
             {
@@ -100,7 +105,11 @@ public class Npc : MonoBehaviour
 
     private void ConversationEnded()
     {
+        if (single_use)
+            disabled = true;
+
         GameManager.Instance.player_busy = false;
+
     }
 
     public void changeConversationIndexTo(int index)

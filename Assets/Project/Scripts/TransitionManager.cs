@@ -28,5 +28,14 @@ public class TransitionManager : MonoBehaviour
         transitionToPosition = position;
         has_transitioned = true;
         SceneManager.LoadScene(scene_index);
+        GameManager.Instance.is_paused = false;
+        GameManager.Instance.player_busy = false;
+    }
+
+    public void TransitionTo(int scene_index)
+    {
+        SceneManager.LoadScene(scene_index);
+        GameManager.Instance.is_paused = false;
+        GameManager.Instance.player_busy = false;
     }
 }
