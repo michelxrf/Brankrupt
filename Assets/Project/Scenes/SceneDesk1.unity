@@ -5957,6 +5957,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6201111041680547973, guid: e3e706630b1efd446ab3b4fa49a5e061, type: 3}
+      propertyPath: maxBattery
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6201111041680547973, guid: e3e706630b1efd446ab3b4fa49a5e061, type: 3}
+      propertyPath: batteryDrain
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6201111041680547973, guid: e3e706630b1efd446ab3b4fa49a5e061, type: 3}
+      propertyPath: flashlightRange
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8745754172627113195, guid: e3e706630b1efd446ab3b4fa49a5e061, type: 3}
       propertyPath: m_Name
       value: GameManager

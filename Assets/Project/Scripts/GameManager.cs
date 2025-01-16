@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DialogueEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,9 +11,14 @@ public class GameManager : MonoBehaviour
     public bool player_busy;
     public static GameManager Instance { get; private set; }
     public List<string> inventory = new List<string>();
-    public Dictionary<Guid, int> npc_current_index_dict = new Dictionary<Guid, int>();
 
     public hud_manager hud;
+
+    [Header("Battery")]
+    public float batteryDrain = 1f;
+    public float flashlightRange = 4f;
+    public float battery;
+    public float maxBattery = 100f;
 
     private void Awake()
     {
@@ -27,8 +33,18 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(this);
         }
 
+        InitFlashlight();
 
+    }
 
+    private void Update()
+    {
+        DebugBackToMenu();
+    }
+
+    private void InitFlashlight()
+    {
+        battery = maxBattery;
     }
 
     public void Pause()
@@ -69,6 +85,19 @@ public class GameManager : MonoBehaviour
         foreach (var item in inventory)
         {
             Debug.Log(item);
+        }
+    }
+
+    public void RechargeBattery(float percentage = 1f)
+    {
+        battery = Mathf.Clamp(battery + maxBattery * percentage, 0, maxBattery);
+    }
+
+    private void DebugBackToMenu()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
         }
     }
 }

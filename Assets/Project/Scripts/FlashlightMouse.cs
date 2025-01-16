@@ -7,23 +7,19 @@ public class FlashlightMouse : MonoBehaviour
     [SerializeField] Light2D lightTrail;
     [SerializeField] Light2D LightLamp;
     [SerializeField] player_controller player;
-    [SerializeField] float range;
-    [SerializeField] float battery_drain;
     [SerializeField] AudioSource click;
     [SerializeField] hud_manager hud;
-    [SerializeField] float max_battery;
 
     private Vector3 flashlightInitialPos;
-    private float battery_left;
     private bool is_on;
     Vector3 mousePos;
     Camera cam;
 
     private void Awake()
     {
-        hud = FindAnyObjectByType<hud_manager>();
         cam = Camera.main;
         flashlightInitialPos = transform.localPosition;
+        hud = FindAnyObjectByType<hud_manager>();
     }
 
     // Start is called before the first frame update
@@ -31,8 +27,7 @@ public class FlashlightMouse : MonoBehaviour
     {
         hud.ShowBatteryLevel();
         Switch_light(false);
-        battery_left = max_battery;
-        lightTrail.pointLightOuterRadius = range;
+        lightTrail.pointLightOuterRadius = GameManager.Instance.flashlightRange;
     }
 
     // Update is called once per frame
@@ -45,18 +40,15 @@ public class FlashlightMouse : MonoBehaviour
         PositionLightAtMouse();
         Drain_Battery();
     }
-    public void Kill_Battery()
-    {
-        battery_left = 0f;
-    }
+
     private void Drain_Battery()
     {
-        hud.Update_Battery(battery_left / max_battery);
+        hud.Update_Battery(GameManager.Instance.battery / GameManager.Instance.maxBattery);
         if (is_on)
         {
-            battery_left -= Time.deltaTime * battery_drain;
+            GameManager.Instance.battery -= Time.deltaTime * GameManager.Instance.batteryDrain;
 
-            if (battery_left <= 0)
+            if (GameManager.Instance.battery <= 0)
             {
                 Switch_light(false);
             }
@@ -68,7 +60,7 @@ public class FlashlightMouse : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             click.Play();
-            if (battery_left > 0)
+            if (GameManager.Instance.battery > 0)
                 Switch_light(!is_on);
         }
     }
@@ -106,7 +98,7 @@ public class FlashlightMouse : MonoBehaviour
 
         lightTrail.transform.up = direction;
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, Mathf.Min((mousePos - transform.position).magnitude, range));
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, Mathf.Min((mousePos - transform.position).magnitude, GameManager.Instance.flashlightRange));
 
         // situation 1: wall in front
         if (hit.collider != null)
@@ -115,10 +107,10 @@ public class FlashlightMouse : MonoBehaviour
             lightTrail.pointLightOuterRadius = (hit.point - (Vector2)transform.position).magnitude;
         }
         // 2: out of range
-        else if ((mousePos - transform.position).magnitude > range)
+        else if ((mousePos - transform.position).magnitude > GameManager.Instance.flashlightRange)
         {
-            lightFocus.transform.position = range * direction + (Vector2)(transform.position);
-            lightTrail.pointLightOuterRadius = range;
+            lightFocus.transform.position = GameManager.Instance.flashlightRange * direction + (Vector2)(transform.position);
+            lightTrail.pointLightOuterRadius = GameManager.Instance.flashlightRange;
         }
         // 3: in range
         else
