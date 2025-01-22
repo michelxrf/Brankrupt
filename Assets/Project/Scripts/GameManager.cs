@@ -1,24 +1,28 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using DialogueEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public bool is_paused;
-    public bool player_busy;
-    public static GameManager Instance { get; private set; }
-    public List<string> inventory = new List<string>();
+    [HideInInspector] public static GameManager Instance { get; private set; }
 
-    public hud_manager hud;
+    [HideInInspector] public hud_manager hud;
+    [HideInInspector] public bool is_paused;
+    [HideInInspector] public bool player_busy;
 
-    [Header("Battery")]
-    public float batteryDrain = 1f;
-    public float flashlightRange = 4f;
-    public float battery;
-    public float maxBattery = 100f;
+    [Header("Inventory")]
+    [SerializeField] public List<string> inventory = new List<string>();
+    private Dictionary<string, string> allItemsInGame = new Dictionary<string, string>();
+
+    [Header("Flashlight Settings")]
+    [SerializeField] public float batteryDrain = 1f;
+    [SerializeField] public float flashlightRange = 4f;
+    [SerializeField] public float battery;
+    [SerializeField] public float maxBattery = 100f;
 
     private void Awake()
     {
@@ -47,6 +51,11 @@ public class GameManager : MonoBehaviour
         battery = maxBattery;
     }
 
+    private void InitItemsList()
+    {
+
+    }
+
     public void Pause()
     {
         is_paused = true;
@@ -64,6 +73,11 @@ public class GameManager : MonoBehaviour
 
     public void Add_Item_To_Inventory(string name)
     {
+        if (!allItemsInGame.ContainsKey(name))
+        {
+            Debug.LogError("Trying to add an invalid item to the inventory");
+        }
+
         inventory.Add(name.ToLower());
         hud.Update_Inventory();
     }
