@@ -43,7 +43,7 @@ public class FlashlightMouse : MonoBehaviour
 
     private void Drain_Battery()
     {
-        hud.Update_Battery(GameManager.Instance.battery / GameManager.Instance.maxBattery);
+        hud.UpdateBattery(GameManager.Instance.battery / GameManager.Instance.maxBattery);
         if (is_on)
         {
             GameManager.Instance.battery -= Time.deltaTime * GameManager.Instance.batteryDrain;
