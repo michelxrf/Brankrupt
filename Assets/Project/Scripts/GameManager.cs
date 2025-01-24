@@ -1,24 +1,33 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using DialogueEditor;
+using Unity.Burst.Intrinsics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEditor.Progress;
 
 public class GameManager : MonoBehaviour
 {
-    public bool is_paused;
-    public bool player_busy;
-    public static GameManager Instance { get; private set; }
-    public List<string> inventory = new List<string>();
+    [HideInInspector] public static GameManager Instance { get; private set; }
 
-    public hud_manager hud;
+    [HideInInspector] public hud_manager hud;
+    [HideInInspector] public bool is_paused;
+    [HideInInspector] public bool player_busy;
 
-    [Header("Battery")]
-    public float batteryDrain = 1f;
-    public float flashlightRange = 4f;
-    public float battery;
-    public float maxBattery = 100f;
+    [Header("Inventory")]
+    [SerializeField] public List<string> inventory = new List<string>();
+    [SerializeField] public Dictionary<string, string> allItemsInGame = new Dictionary<string, string>();
+
+    [Header("Flashlight Settings")]
+    [SerializeField] public float batteryDrain = 1f;
+    [SerializeField] public float flashlightRange = 4f;
+    [SerializeField] public float battery;
+    [SerializeField] public float maxBattery = 100f;
+
+    [Header("Guide")]
+    [SerializeField] public string gameObjective = "What should I do?";
 
     private void Awake()
     {
@@ -31,9 +40,14 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(this);
+            InitFlashlight();
+            InitItemsList();
         }
+        
+    }
 
-        InitFlashlight();
+    private void Start()
+    {
 
     }
 
@@ -42,9 +56,22 @@ public class GameManager : MonoBehaviour
         DebugBackToMenu();
     }
 
+    public void ChangeObjective(string objective)
+    {
+        gameObjective = objective;
+        hud.UpdateObjective();
+    }
+
     private void InitFlashlight()
     {
         battery = maxBattery;
+    }
+    private void InitItemsList()
+    {
+        allItemsInGame.Add("pendrive", "InventoryIcons/genericItem_color_155");
+        allItemsInGame.Add("key", "InventoryIcons/genericItem_color_155");
+        allItemsInGame.Add("documents", "InventoryIcons/genericItem_color_148");
+        allItemsInGame.Add("screwdriver", "InventoryIcons/genericItem_color_005");
     }
 
     public void Pause()
@@ -64,20 +91,33 @@ public class GameManager : MonoBehaviour
 
     public void Add_Item_To_Inventory(string name)
     {
+        if (!allItemsInGame.ContainsKey(name))
+        {
+            Debug.LogError("Trying to add an invalid item to the inventory");
+            return;
+        }
+
         inventory.Add(name.ToLower());
-        hud.Update_Inventory();
+        hud.UpdateInventory();
     }
 
     public void Remove_Item_From_Inventory(string name)
     {
-        inventory.Remove(name.ToLower());
-        hud.Update_Inventory();
+        if (Has_Item_On_Inventory(name))
+        {
+            inventory.Remove(name.ToLower());
+            hud.UpdateInventory();
+        }
+        else
+        {
+            Debug.Log("trying to remove an item that's not present on the inventory");
+        }
     }
 
     public void Clear_Inventory()
     {
         inventory.Clear();
-        hud.Update_Inventory();
+        hud.UpdateInventory();
     }
 
     public void Log_All_Items()
