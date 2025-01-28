@@ -49,15 +49,18 @@ public class Dummy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
+
         if (collision.gameObject.CompareTag("lightSource"))
         {
+            Debug.Log(collision.gameObject.name);
             GetLight();
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("beep");
+        
         if (collision.gameObject.CompareTag("lightSource"))
         {
             GetDark();
