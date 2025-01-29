@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class Dummy : MonoBehaviour
 {
     [SerializeField] float speed = 1f;
-    [SerializeField] Transform target;
+    private Transform target;
     private NavMeshAgent navAgent;
     [SerializeField] private GameObject sprite;
 
@@ -16,7 +16,9 @@ public class Dummy : MonoBehaviour
         navAgent = GetComponent<NavMeshAgent>();
         navAgent.updateRotation = false;
         navAgent.updatePosition = true;
-        navAgent.speed = speed;    
+        navAgent.speed = speed;
+
+        target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     private void Start()
@@ -32,7 +34,14 @@ public class Dummy : MonoBehaviour
 
     private void Update()
     {
-        navAgent.SetDestination(target.position);
+        if (target != null)
+        {
+            navAgent.SetDestination(target.position);
+        }
+        else
+        {
+            target = GameObject.FindGameObjectWithTag("Player").transform;
+        }
     }
 
     private void GetLight()
@@ -49,11 +58,8 @@ public class Dummy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-
         if (collision.gameObject.CompareTag("lightSource"))
         {
-            Debug.Log(collision.gameObject.name);
             GetLight();
         }
     }
