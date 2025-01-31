@@ -246,6 +246,7 @@ GameObject:
   - component: {fileID: 1630761639126465336}
   - component: {fileID: 1508334370889503520}
   - component: {fileID: 4588260289022241322}
+  - component: {fileID: 7348311584746365228}
   m_Layer: 2
   m_Name: Player
   m_TagString: Player
@@ -355,11 +356,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be7d34b68870f7c4690eb86081db9152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walk_speed: 50
+  walk_speed: 100
   rb: {fileID: 1630761639126465336}
   animator: {fileID: 5316116117085644224}
   sprite: {fileID: 3690476716868882682}
   flashlight: {fileID: 3085235595701090019}
+--- !u!81 &7348311584746365228
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6923213202580898572}
+  m_Enabled: 1
 --- !u!1001 &658167842065046387
 PrefabInstance:
   m_ObjectHideFlags: 0

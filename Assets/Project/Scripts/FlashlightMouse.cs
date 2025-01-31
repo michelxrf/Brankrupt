@@ -6,6 +6,7 @@ public class FlashlightMouse : MonoBehaviour
     [SerializeField] Light2D lightFocus;
     [SerializeField] Light2D lightTrail;
     [SerializeField] Light2D LightLamp;
+    [SerializeField] Collider2D lightCollider;
     [SerializeField] player_controller player;
     [SerializeField] AudioSource click;
     [SerializeField] hud_manager hud;
@@ -68,7 +69,7 @@ public class FlashlightMouse : MonoBehaviour
     private void Switch_light(bool new_state)
     {
         is_on = new_state;
-
+        lightCollider.enabled = new_state;
         lightFocus.enabled = is_on;
         lightTrail.enabled = is_on;
         LightLamp.enabled = is_on;

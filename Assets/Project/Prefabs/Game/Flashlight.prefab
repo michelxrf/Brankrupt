@@ -50,12 +50,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightFocus: {fileID: 8999487346277446738}
   lightTrail: {fileID: 8456034732399676407}
+  LightLamp: {fileID: 7249230214109469892}
+  lightCollider: {fileID: 5920116533715120732}
   player: {fileID: 0}
-  range: 4
-  battery_drain: 3
   click: {fileID: 9164899330480329446}
   hud: {fileID: 0}
-  max_battery: 100
 --- !u!82 &9164899330480329446
 AudioSource:
   m_ObjectHideFlags: 0
@@ -326,9 +325,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1795022690077453241}
   - component: {fileID: 8999487346277446738}
+  - component: {fileID: 5920116533715120732}
   m_Layer: 2
   m_Name: FlashlightFocus
-  m_TagString: Untagged
+  m_TagString: lightSource
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -398,3 +398,38 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!58 &5920116533715120732
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4413976460604163894}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5

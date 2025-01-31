@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Project/Scenes/SceneMain2.unity
     guid: e7ea550b815835a4d82d6b53a4d5c111
+  - enabled: 1
+    path: Assets/Project/Scenes/NavmeshTest.unity
+    guid: 8091b7723b085f1429316329783d0d72
   m_configObjects: {}
