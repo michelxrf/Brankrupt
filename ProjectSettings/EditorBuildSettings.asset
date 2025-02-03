@@ -18,10 +18,10 @@ EditorBuildSettings:
     path: Assets/Project/Scenes/TemplateScene.unity
     guid: 0060c85ebb9b46f458aa1415790ba4ab
   - enabled: 1
-    path: Assets/Project/Scenes/SceneDesk1.unity
+    path: Assets/Project/Scenes/Deletar/SceneDesk1.unity
     guid: df96faad7bab4014dbfef6ab32942e09
   - enabled: 1
-    path: Assets/Project/Scenes/SceneMain2.unity
+    path: Assets/Project/Scenes/Deletar/SceneMain2.unity
     guid: e7ea550b815835a4d82d6b53a4d5c111
   - enabled: 1
     path: Assets/Project/Scenes/NavmeshTest.unity
