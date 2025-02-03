@@ -27,6 +27,7 @@ public class Npc : MonoBehaviour
         if (conversationList.Length < 1)
         {
             Debug.LogError("NPC has no conversation");
+            disabled = true;
         }
             
 
