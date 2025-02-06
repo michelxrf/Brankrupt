@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3815289800462956817}
   - component: {fileID: 6906061653997295133}
   - component: {fileID: 2497549260116618724}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WaterDispenser
   m_TagString: Untagged
   m_Icon: {fileID: 0}

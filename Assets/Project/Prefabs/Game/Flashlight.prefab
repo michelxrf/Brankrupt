@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4907862839788961006}
   - component: {fileID: 4997728203185344196}
   - component: {fileID: 9164899330480329446}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: Flashlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,6 +48,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a6d77fe9d046f47970b32f742d555f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightBlockLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   lightFocus: {fileID: 8999487346277446738}
   lightTrail: {fileID: 8456034732399676407}
   LightLamp: {fileID: 7249230214109469892}
@@ -161,7 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1033750473075569897}
   - component: {fileID: 8456034732399676407}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: FlashlightTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +246,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7495080629214816227}
   - component: {fileID: 7249230214109469892}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: LampShine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +329,7 @@ GameObject:
   - component: {fileID: 1795022690077453241}
   - component: {fileID: 8999487346277446738}
   - component: {fileID: 5920116533715120732}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: FlashlightFocus
   m_TagString: lightSource
   m_Icon: {fileID: 0}

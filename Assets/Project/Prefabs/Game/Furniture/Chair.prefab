@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1710105706423245023}
   - component: {fileID: 6067453765724236781}
   - component: {fileID: 6217720108025877064}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Chair
   m_TagString: Untagged
   m_Icon: {fileID: 0}

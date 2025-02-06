@@ -3,6 +3,7 @@ using UnityEngine.Rendering.Universal;
 
 public class FlashlightMouse : MonoBehaviour
 {
+    [SerializeField] LayerMask lightBlockLayerMask;
     [SerializeField] Light2D lightFocus;
     [SerializeField] Light2D lightTrail;
     [SerializeField] Light2D LightLamp;
@@ -99,7 +100,7 @@ public class FlashlightMouse : MonoBehaviour
 
         lightTrail.transform.up = direction;
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, Mathf.Min((mousePos - transform.position).magnitude, GameManager.Instance.flashlightRange));
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, Mathf.Min((mousePos - transform.position).magnitude, GameManager.Instance.flashlightRange), lightBlockLayerMask);
 
         // situation 1: wall in front
         if (hit.collider != null)

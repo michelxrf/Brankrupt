@@ -13,12 +13,12 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - FlashlightCollider
+  - LightSource
+  - Monsters
+  - Player
+  - Walls&Furniture
+  - Interactions
   - 
   - 
   - 

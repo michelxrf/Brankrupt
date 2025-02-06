@@ -29,6 +29,9 @@ public class GameManager : MonoBehaviour
     [Header("Guide")]
     [SerializeField] public string gameObjective = "What should I do?";
 
+    [Header("NPC States")]
+    [SerializeField] public List<NPCStateHolder> npcStates = new List<NPCStateHolder>();
+
     private void Awake()
     {
 
@@ -49,6 +52,60 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
 
+    }
+
+    public void SaveNPC(int id, bool isActive, string npcName, int dialogIndex)
+    {
+        NPCStateHolder npc = npcStates.Find(npc => npc.id == id);
+
+        if (npc == null)
+        {
+            RegisterNPC(id, isActive, npcName, dialogIndex);
+        }
+        else
+        {
+            UpdateNPC(id, isActive, npcName, dialogIndex);
+        }
+    }
+
+    public NPCStateHolder LoadNPC(int id)
+    {
+        NPCStateHolder npc = npcStates.Find(npc => npc.id == id);
+
+        if (npc == null)
+        {
+            return null;
+        }
+        else
+        {
+            return npc;
+        }
+    }
+
+    public void RegisterNPC(int id, bool isActive, string npcName, int dialogIndex)
+    {
+        if (npcStates.Find(npc => npc.id == id))
+        {
+            Debug.LogError("trying to register an NPC with an id that's already registered");
+            return;
+        }
+
+        NPCStateHolder newNpc = new NPCStateHolder();
+        newNpc.id = id;
+        newNpc.npcName = npcName;
+        newNpc.active = isActive;
+        newNpc.dialog_index = dialogIndex;
+
+        if (newNpc.AssertCorrectConfig())
+            npcStates.Add(newNpc);
+    }
+
+    public void UpdateNPC(int id, bool isActive, string npcName, int dialogIndex)
+    {
+        NPCStateHolder updatedNpc = npcStates.Find(npc => npc.id == id); ;
+        updatedNpc.npcName = npcName;
+        updatedNpc.active = isActive;
+        updatedNpc.dialog_index = dialogIndex;
     }
 
     private void Update()
@@ -72,6 +129,9 @@ public class GameManager : MonoBehaviour
         allItemsInGame.Add("key", "InventoryIcons/genericItem_color_155");
         allItemsInGame.Add("documents", "InventoryIcons/genericItem_color_148");
         allItemsInGame.Add("screwdriver", "InventoryIcons/genericItem_color_005");
+        allItemsInGame.Add("Caneta", "InventoryIcons/genericItem_color_005");// add art
+        allItemsInGame.Add("Contrato", "InventoryIcons/genericItem_color_005");// add art
+        allItemsInGame.Add("Carimbo", "InventoryIcons/genericItem_color_005");// add art
     }
 
     public void Pause()

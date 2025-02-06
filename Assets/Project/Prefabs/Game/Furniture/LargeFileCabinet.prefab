@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6562448435560302785}
   - component: {fileID: 7533262089717492886}
   - component: {fileID: 7411257694487837249}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: "tiles adiministra\xE7\xE3o_2 (3)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 7823610458062386168}
   - component: {fileID: 2800755180191581752}
   - component: {fileID: 2783894319213911869}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: "tiles adiministra\xE7\xE3o_2 (1)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,7 +204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7950862462923632474}
   - component: {fileID: 7572082040646476748}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LargeFileCabinet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 4263431104697344175}
   - component: {fileID: 5019135207377297394}
   - component: {fileID: 479255536077054845}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: "tiles adiministra\xE7\xE3o_2 (2)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -383,7 +383,7 @@ GameObject:
   - component: {fileID: 7068317365953261590}
   - component: {fileID: 4022554444438395120}
   - component: {fileID: 3533872366251335366}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: "tiles adiministra\xE7\xE3o_2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}

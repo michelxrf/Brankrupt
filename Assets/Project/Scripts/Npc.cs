@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using DialogueEditor;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Npc : MonoBehaviour
 {
+    [SerializeField] private int id;
     [SerializeField] GameObject interaction_tip;
     [SerializeField] bool triggerInstantly = false;
-    [SerializeField] int id;
     [SerializeField] bool single_use = false;
     
     public int currentConversationIndex;
@@ -19,10 +20,6 @@ public class Npc : MonoBehaviour
     private bool can_interact = false;
     private void Awake()
     {
-        if (id == 0)
-        {
-                Debug.LogError("Use a non 0 id for each NPC");
-        }
         can_interact = triggerInstantly;
         if (conversationList.Length < 1)
         {
@@ -33,6 +30,23 @@ public class Npc : MonoBehaviour
 
         interaction_tip.SetActive(false);
         ConversationManager.OnConversationEnded += ConversationEnded;
+    }
+
+    private void Start()
+    {
+        LoadNPCState();
+    }
+
+    private void LoadNPCState()
+    {
+        NPCStateHolder npc = GameManager.Instance.LoadNPC(id);
+
+        if (npc != null)
+        {
+            id = npc.id;
+            currentConversationIndex = npc.dialog_index;
+            gameObject.SetActive(npc.active);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -115,15 +129,20 @@ public class Npc : MonoBehaviour
 
     public void changeConversationIndexTo(int index)
     {
-        if (conversationList.Length < index)
+        if (conversationList.Length <= index + 1)
         {
             currentConversationIndex = index;
         }
         else
         {
             currentConversationIndex = 0;
-            Debug.Log("invalid conversation index");
+            Debug.LogError("invalid conversation index");
         }
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.SaveNPC(id, enabled, gameObject.name, currentConversationIndex);
     }
 
 }

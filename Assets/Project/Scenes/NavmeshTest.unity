@@ -329,6 +329,46 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca, type: 3}
+--- !u!1 &530922044 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2298442189590164988, guid: c14ecefd91fab134ea0c13cd183c6af7, type: 3}
+  m_PrefabInstance: {fileID: 5223021610797107577}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &530922049
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530922044}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &540366245
 GameObject:
   m_ObjectHideFlags: 0
@@ -3696,46 +3736,6 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
---- !u!1 &844567025 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2298442189590164988, guid: c14ecefd91fab134ea0c13cd183c6af7, type: 3}
-  m_PrefabInstance: {fileID: 5223021610797107577}
-  m_PrefabAsset: {fileID: 0}
---- !u!58 &844567031
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 844567025}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.24
 --- !u!1 &943911653
 GameObject:
   m_ObjectHideFlags: 0
@@ -4106,10 +4106,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3775089740636757061, guid: 837b1e54f28282745b9ea136b1074440, type: 3}
-      propertyPath: m_TagString
-      value: lightSource
-      objectReference: {fileID: 0}
     - target: {fileID: 4889479881068025331, guid: 837b1e54f28282745b9ea136b1074440, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.254856
@@ -4150,10 +4146,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5510496607970203063, guid: 837b1e54f28282745b9ea136b1074440, type: 3}
-      propertyPath: lightCollider
-      value: 
-      objectReference: {fileID: 2112643045}
     - target: {fileID: 6923213202580898572, guid: 837b1e54f28282745b9ea136b1074440, type: 3}
       propertyPath: m_Name
       value: Player
@@ -4281,11 +4273,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3900108755196472087, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca, type: 3}
   m_PrefabInstance: {fileID: 443297546}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1926586968 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4889479881068025331, guid: 837b1e54f28282745b9ea136b1074440, type: 3}
-  m_PrefabInstance: {fileID: 1316061421}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1955830603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4411,11 +4398,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &2112643045 stripped
-CircleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 6560111561294145839, guid: 837b1e54f28282745b9ea136b1074440, type: 3}
-  m_PrefabInstance: {fileID: 1316061421}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2137279521
 GameObject:
   m_ObjectHideFlags: 0
@@ -4869,22 +4851,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 403052878199028599, guid: c14ecefd91fab134ea0c13cd183c6af7, type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 403052878199028599, guid: c14ecefd91fab134ea0c13cd183c6af7, type: 3}
-      propertyPath: m_Simulated
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2298442189590164988, guid: c14ecefd91fab134ea0c13cd183c6af7, type: 3}
       propertyPath: m_Name
       value: Monster
       objectReference: {fileID: 0}
-    - target: {fileID: 7606349513663984080, guid: c14ecefd91fab134ea0c13cd183c6af7, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 1926586968}
     - target: {fileID: 8112547879776410618, guid: c14ecefd91fab134ea0c13cd183c6af7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.06
@@ -4931,7 +4901,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2298442189590164988, guid: c14ecefd91fab134ea0c13cd183c6af7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 844567031}
+      addedObject: {fileID: 530922049}
   m_SourcePrefab: {fileID: 100100000, guid: c14ecefd91fab134ea0c13cd183c6af7, type: 3}
 --- !u!1001 &6335861731142365448
 PrefabInstance:

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2760998223906307547}
   - component: {fileID: 1237255579955859001}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "tiles adiministra\xE7\xE3o_3"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 8617395214091061898}
   - component: {fileID: 2954517575263907513}
   - component: {fileID: 8715764162522745100}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: MapTransition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapIndex: 0
   mapTransitionPosition: {x: 0, y: 0}
-  instantTransition: 1
+  instantTransition: 0
   interaction_tip: {fileID: 2607115935491918732}
 --- !u!58 &8715764162522745100
 CircleCollider2D:
@@ -181,6 +181,10 @@ PrefabInstance:
     - target: {fileID: 11758567246475721, guid: d98c9c2db15388d42afc9abfa15baf1a, type: 3}
       propertyPath: m_Name
       value: InterationTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 11758567246475721, guid: d98c9c2db15388d42afc9abfa15baf1a, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5859313576604859938, guid: d98c9c2db15388d42afc9abfa15baf1a, type: 3}
       propertyPath: m_LocalPosition.x
