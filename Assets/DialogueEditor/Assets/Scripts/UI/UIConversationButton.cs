@@ -107,7 +107,7 @@ namespace DialogueEditor
         public void OnClick()
         {
             if (!ConversationManager.Instance.AllowMouseInteraction) { return; }
-
+            GetComponent<Button>().enabled = false;
             DoClickBehaviour();
         }
 
