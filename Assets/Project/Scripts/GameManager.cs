@@ -72,12 +72,15 @@ public class GameManager : MonoBehaviour
     {
         NPCStateHolder npc = npcStates.Find(npc => npc.id == id);
 
+        Debug.Log(npc);
+
         if (npc == null)
         {
             return null;
         }
         else
         {
+
             return npc;
         }
     }
