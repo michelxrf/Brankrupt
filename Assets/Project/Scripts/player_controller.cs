@@ -2,13 +2,20 @@ using UnityEngine;
 
 public class player_controller : MonoBehaviour
 {
-    [SerializeField] float walk_speed;
+
+    [Header("Ref")]    
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Animator animator;
     [SerializeField] SpriteRenderer sprite;
     [SerializeField] GameObject flashlight;
 
-    private Vector2 direction;
+    [Header("Movement")]
+    [SerializeField] float walkSpeed;
+    [SerializeField] float speedMultiplierWhenBackwards = .6f;
+
+    private float currentSpeed;
+    private Vector2 walkDirection;
+    private Vector2 mouseDirection;
     Camera cam;
 
     private void Awake()
@@ -44,7 +51,16 @@ public class player_controller : MonoBehaviour
 
     private void Move()
     {
-        rb.velocity = direction * walk_speed * Time.deltaTime;
+        if (Mathf.Sign(mouseDirection.x) != Mathf.Sign(walkDirection.x))
+        {
+            currentSpeed = walkSpeed * speedMultiplierWhenBackwards;
+        }
+        else
+        {
+            currentSpeed = walkSpeed;
+        }
+
+        rb.velocity = walkDirection * currentSpeed * Time.deltaTime;
      }
 
     private void LookAtMouse()
@@ -52,28 +68,25 @@ public class player_controller : MonoBehaviour
         Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0f;
 
-        direction.x = Input.GetAxisRaw("Horizontal");
-        direction.y = Input.GetAxisRaw("Vertical");
-        direction.Normalize();
+        walkDirection.x = Input.GetAxisRaw("Horizontal");
+        walkDirection.y = Input.GetAxisRaw("Vertical");
+        walkDirection.Normalize();
 
-        animator.SetBool("is_walking", direction.magnitude != 0);
+        animator.SetBool("is_walking", walkDirection.magnitude != 0);
 
-        if ((mousePos.x - transform.position.x) < 0)
+        mouseDirection = new Vector2(mousePos.x - transform.position.x, mousePos.y - transform.position.y);
+
+        if (mouseDirection.x < 0)
         {
             sprite.flipX = true;
-            FlipFlashlight(true);
+            
         }
         else
         {
             sprite.flipX = false;
-            FlipFlashlight(false);
+            currentSpeed = walkSpeed;
         }
             
-    }
-
-    private void FlipFlashlight(bool is_flip)
-    {
-
     }
 
     private void ProcessInput()
