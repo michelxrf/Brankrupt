@@ -77,6 +77,8 @@ namespace DialogueEditor
         private SpeechNode m_currentSpeech;
         private OptionNode m_selectedOption;
 
+        public Npc conversingNpc;
+
         // Selection options
         private List<UIConversationButton> m_uiOptions;
         private int m_currentSelectedIndex;
@@ -143,8 +145,10 @@ namespace DialogueEditor
         // Public functions
         //--------------------------------------
 
-        public void StartConversation(NPCConversation conversation)
+        public void StartConversation(NPCConversation conversation, Npc npc)
         {
+            conversingNpc = npc;
+
             m_conversation = conversation.Deserialize();
             if (OnConversationStarted != null)
                 OnConversationStarted.Invoke();

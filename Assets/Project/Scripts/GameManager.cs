@@ -129,13 +129,10 @@ public class GameManager : MonoBehaviour
     }
     private void InitItemsList()
     {
-        allItemsInGame.Add("pendrive", "InventoryIcons/genericItem_color_155");
-        allItemsInGame.Add("key", "InventoryIcons/genericItem_color_155");
+        allItemsInGame.Add("agenda", "InventoryIcons/genericItem_color_155");
+        allItemsInGame.Add("documentos", "InventoryIcons/genericItem_color_155");
         allItemsInGame.Add("documents", "InventoryIcons/genericItem_color_148");
         allItemsInGame.Add("screwdriver", "InventoryIcons/genericItem_color_005");
-        allItemsInGame.Add("Caneta", "InventoryIcons/genericItem_color_005");// add art
-        allItemsInGame.Add("Contrato", "InventoryIcons/genericItem_color_005");// add art
-        allItemsInGame.Add("Carimbo", "InventoryIcons/genericItem_color_005");// add art
     }
 
     public void Pause()
@@ -155,13 +152,13 @@ public class GameManager : MonoBehaviour
 
     public void Add_Item_To_Inventory(string name)
     {
-        if (!allItemsInGame.ContainsKey(name))
+        if (!allItemsInGame.ContainsKey(name.ToLower().Trim()))
         {
             Debug.LogError("Trying to add an invalid item to the inventory");
             return;
         }
 
-        inventory.Add(name.ToLower());
+        inventory.Add(name.ToLower().Trim());
         hud.UpdateInventory();
     }
 

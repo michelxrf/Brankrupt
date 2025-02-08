@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DialogueEditor;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -10,7 +11,8 @@ public class Npc : MonoBehaviour
     [SerializeField] private int id;
     [SerializeField] GameObject interaction_tip;
     [SerializeField] bool triggerInstantly = false;
-    [SerializeField] bool single_use = false;
+    [SerializeField] bool singleUse = false;
+    [SerializeField] GameObject conversationsParent;
     
     public int currentConversationIndex;
     public NPCConversation[] conversationList;
@@ -29,7 +31,7 @@ public class Npc : MonoBehaviour
             
 
         interaction_tip.SetActive(false);
-        ConversationManager.OnConversationEnded += ConversationEnded;
+        ConversationManager.OnConversationEnded += OnConversationEnded;
     }
 
     private void Start()
@@ -99,12 +101,12 @@ public class Npc : MonoBehaviour
 
     private void Interaction()
     {
-        if (GameManager.Instance.player_busy || GameManager.Instance.is_paused)
+        if (GameManager.Instance.player_busy || GameManager.Instance.is_paused || disabled)
             return;
 
         if((Input.GetKeyDown(KeyCode.E) && can_interact) || triggerInstantly && playerInRange && can_interact)
         {
-            ConversationManager.Instance.StartConversation(conversationList[currentConversationIndex]);
+            ConversationManager.Instance.StartConversation(conversationList[currentConversationIndex], this);
             loadInventoryIntoConverstation();
             GameManager.Instance.player_busy = true;
         }
@@ -119,13 +121,14 @@ public class Npc : MonoBehaviour
         
     }
 
-    private void ConversationEnded()
+    private void OnConversationEnded()
     {
-        if (single_use)
-            disabled = true;
-
         GameManager.Instance.player_busy = false;
-
+        if (singleUse && ConversationManager.Instance.conversingNpc == this)
+        {
+            disabled = true;
+            interaction_tip.SetActive(false);
+        }
     }
 
     public void changeConversationIndexTo(int index)
