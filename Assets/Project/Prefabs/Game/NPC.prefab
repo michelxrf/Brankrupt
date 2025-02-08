@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2356491001025288306}
   - component: {fileID: 5230690843438297907}
   - component: {fileID: 7641283481131472940}
-  - component: {fileID: 3579401101538932219}
   - component: {fileID: 92305269183069311}
   m_Layer: 11
   m_Name: NPC
@@ -143,14 +142,6 @@ MonoBehaviour:
   single_use: 0
   currentConversationIndex: 0
   conversationList: []
---- !u!81 &3579401101538932219
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1206381074775620563}
-  m_Enabled: 1
 --- !u!114 &92305269183069311
 MonoBehaviour:
   m_ObjectHideFlags: 0

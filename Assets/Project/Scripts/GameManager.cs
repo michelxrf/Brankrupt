@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public string gameObjective = "What should I do?";
 
     [Header("NPC States")]
-    [SerializeField] public List<NPCStateHolder> npcStates = new List<NPCStateHolder>();
+    [SerializeField] public Dictionary<int, NPCStateHolder> npcStates = new Dictionary<int, NPCStateHolder>();
 
     private void Awake()
     {
@@ -46,53 +46,22 @@ public class GameManager : MonoBehaviour
             InitFlashlight();
             InitItemsList();
         }
-        
-    }
-
-    private void Start()
-    {
 
     }
 
     public void SaveNPC(int id, bool isActive, string npcName, int dialogIndex)
     {
-        NPCStateHolder npc = npcStates.Find(npc => npc.id == id);
-
-        if (npc == null)
-        {
-            RegisterNPC(id, isActive, npcName, dialogIndex);
-        }
-        else
+        if (npcStates.ContainsKey(id))
         {
             UpdateNPC(id, isActive, npcName, dialogIndex);
         }
-    }
-
-    public NPCStateHolder LoadNPC(int id)
-    {
-        NPCStateHolder npc = npcStates.Find(npc => npc.id == id);
-
-        Debug.Log(npc);
-
-        if (npc == null)
-        {
-            return null;
-        }
         else
         {
-
-            return npc;
+            RegisterNPC(id, isActive, npcName, dialogIndex);
         }
     }
-
     public void RegisterNPC(int id, bool isActive, string npcName, int dialogIndex)
     {
-        if (npcStates.Find(npc => npc.id == id))
-        {
-            Debug.LogError("trying to register an NPC with an id that's already registered");
-            return;
-        }
-
         NPCStateHolder newNpc = new NPCStateHolder();
         newNpc.id = id;
         newNpc.npcName = npcName;
@@ -100,20 +69,37 @@ public class GameManager : MonoBehaviour
         newNpc.dialog_index = dialogIndex;
 
         if (newNpc.AssertCorrectConfig())
-            npcStates.Add(newNpc);
+        {
+            npcStates.Add(id, newNpc);
+        }
+            
+    }
+
+    private void PrintAllNpc()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+            foreach (var npc in npcStates)
+            {
+                Debug.Log($"{npc.Key} - {npc.Value.npcName}");
+            }
+            
     }
 
     public void UpdateNPC(int id, bool isActive, string npcName, int dialogIndex)
     {
-        NPCStateHolder updatedNpc = npcStates.Find(npc => npc.id == id); ;
+        NPCStateHolder updatedNpc = new NPCStateHolder();
         updatedNpc.npcName = npcName;
         updatedNpc.active = isActive;
         updatedNpc.dialog_index = dialogIndex;
+
+        npcStates[id] = updatedNpc;
+        Debug.Log($"{npcStates[id].npcName} Updated");
     }
 
     private void Update()
     {
         DebugBackToMenu();
+        PrintAllNpc();
     }
 
     public void ChangeObjective(string objective)

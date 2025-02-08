@@ -13,7 +13,7 @@ public class NPCStateHolder : MonoBehaviour
     {
         bool correct = true;
 
-        if (id <= 0)
+        if (id < 0)
         {
             Debug.LogError($"{npcName} ID is not set correctly");
             correct = false;

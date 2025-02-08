@@ -39,13 +39,18 @@ public class Npc : MonoBehaviour
 
     private void LoadNPCState()
     {
-        NPCStateHolder npc = GameManager.Instance.LoadNPC(id);
-
-        if (npc != null)
+        if (GameManager.Instance.npcStates.TryGetValue(id, out var npc))
         {
             id = npc.id;
             currentConversationIndex = npc.dialog_index;
             gameObject.SetActive(npc.active);
+            disabled = !npc.active;
+            Debug.Log($"{npc.npcName} loaded");
+        }
+        else
+        {
+            GameManager.Instance.SaveNPC(id, !disabled, name, currentConversationIndex);
+            Debug.Log($"{name} saved");
         }
     }
 
@@ -54,16 +59,13 @@ public class Npc : MonoBehaviour
         if (disabled)
             { return; }
 
-        Debug.Log("ontriggerEnter");
         if (collision.gameObject.CompareTag("Player"))
         {
             playerInRange = true;
             if (triggerInstantly)
             {
-                Debug.Log("CallInteraction");
                 Interaction();
                 can_interact = false;
-                Debug.Log("FinishedInteraction");
             }
             else
             {
@@ -80,7 +82,6 @@ public class Npc : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("ontriggerExit");
         if (collision.gameObject.CompareTag("Player"))
         {
             playerInRange = false;
@@ -142,7 +143,7 @@ public class Npc : MonoBehaviour
 
     private void OnDestroy()
     {
-        GameManager.Instance.SaveNPC(id, enabled, gameObject.name, currentConversationIndex);
+        GameManager.Instance.SaveNPC(id, !disabled, gameObject.name, currentConversationIndex);
     }
 
 }
