@@ -85,9 +85,24 @@ public class GameManager : MonoBehaviour
             
     }
 
+    public void SkipToNextDialog(int npcId)
+    {
+        if (GameManager.Instance.npcStates.TryGetValue(npcId, out var npc))
+        {
+            UpdateNPC(npcId, npc.active, npc.npcName, npc.dialog_index + 1);
+        }
+        else
+        {
+            Debug.LogError("Npc index not found when skipping dialog");
+        }
+
+        
+    }
+
     public void UpdateNPC(int id, bool isActive, string npcName, int dialogIndex)
     {
         NPCStateHolder updatedNpc = new NPCStateHolder();
+        updatedNpc.id = id;
         updatedNpc.npcName = npcName;
         updatedNpc.active = isActive;
         updatedNpc.dialog_index = dialogIndex;
