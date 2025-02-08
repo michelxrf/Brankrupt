@@ -17,7 +17,7 @@ public class Npc : MonoBehaviour
     public int currentConversationIndex;
     public NPCConversation[] conversationList;
 
-    private bool disabled = false;
+    public bool disabled = false;
     private bool playerInRange = false;
     private bool can_interact = false;
     private void Awake()
@@ -45,7 +45,6 @@ public class Npc : MonoBehaviour
         {
             id = npc.id;
             currentConversationIndex = npc.dialog_index;
-            gameObject.SetActive(npc.active);
             disabled = !npc.active;
             Debug.Log($"{npc.npcName} loaded");
         }
@@ -133,7 +132,7 @@ public class Npc : MonoBehaviour
 
     public void changeConversationIndexTo(int index)
     {
-        if (conversationList.Length <= index + 1)
+        if (index <= conversationList.Length - 1)
         {
             currentConversationIndex = index;
         }
@@ -147,6 +146,11 @@ public class Npc : MonoBehaviour
     private void OnDestroy()
     {
         GameManager.Instance.SaveNPC(id, !disabled, gameObject.name, currentConversationIndex);
+    }
+
+    public void DisableNPC(bool newState)
+    {
+        disabled = newState;
     }
 
 }

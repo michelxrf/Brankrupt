@@ -16,10 +16,12 @@ public class player_controller : MonoBehaviour
     private float currentSpeed;
     private Vector2 walkDirection;
     private Vector2 mouseDirection;
+    private AudioSource footstepSFX;
     Camera cam;
 
     private void Awake()
     {
+        footstepSFX = GetComponent<AudioSource>();
         cam = Camera.main;
     }
 
@@ -42,6 +44,7 @@ public class player_controller : MonoBehaviour
         if(!GameManager.Instance.player_busy && !GameManager.Instance.is_paused)
         {
             Move();
+            //PlayFootsteps();
         }
         else
         {
@@ -63,6 +66,17 @@ public class player_controller : MonoBehaviour
         rb.velocity = walkDirection * currentSpeed * Time.deltaTime;
      }
 
+    private void PlayFootsteps()
+    {
+       if (footstepSFX.isPlaying == false && walkDirection.magnitude != 0)
+        {
+            float randomPtichModifier = Random.Range(.5f, 1.5f);
+            footstepSFX.pitch = randomPtichModifier;
+            footstepSFX.Play();
+        }
+
+        
+    }
     private void LookAtMouse()
     {
         Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);

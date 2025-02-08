@@ -9,10 +9,14 @@ public class Dummy : MonoBehaviour
     [SerializeField] float speed = 1f;
     private Transform target;
     private NavMeshAgent navAgent;
+    private float animationSpeed;
+    private Animator animator;
     [SerializeField] private GameObject sprite;
 
     private void Awake()
     {
+        animator = GetComponentInChildren<Animator>();
+        animationSpeed = animator.speed;
         navAgent = GetComponent<NavMeshAgent>();
         navAgent.updateRotation = false;
         navAgent.updatePosition = true;
@@ -47,12 +51,16 @@ public class Dummy : MonoBehaviour
     private void GetLight()
     {
         navAgent.speed = 0f;
+        animator.speed = 0f;
+
         Debug.Log("monster is in the LIGHT");
     }
 
     private void GetDark()
     {
         navAgent.speed = speed;
+        animator.speed = animationSpeed;
+
         Debug.Log("monster is in the DARK");
     }
 

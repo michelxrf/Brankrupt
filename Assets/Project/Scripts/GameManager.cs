@@ -175,6 +175,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void DeactivateNPC(int id)
+    {
+        UpdateNPC(id, false, npcStates[id].npcName, npcStates[id].dialog_index);
+    }
+
+    public void ActivateNPC(int id)
+    {
+        UpdateNPC(id, true, npcStates[id].npcName, npcStates[id].dialog_index);
+    }
+
     public void Clear_Inventory()
     {
         inventory.Clear();

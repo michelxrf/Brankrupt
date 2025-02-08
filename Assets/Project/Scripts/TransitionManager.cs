@@ -34,6 +34,7 @@ public class TransitionManager : MonoBehaviour
 
     public void TransitionTo(int scene_index)
     {
+        Debug.Log("Transition Called");
         SceneManager.LoadScene(scene_index);
         GameManager.Instance.is_paused = false;
         GameManager.Instance.player_busy = false;

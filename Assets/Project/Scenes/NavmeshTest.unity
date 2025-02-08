@@ -485,7 +485,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -10000
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -2784,32 +2784,6 @@ MonoBehaviour:
   m_Area: 0
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
---- !u!1 &726691362 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 793793196391594778, guid: c14ecefd91fab134ea0c13cd183c6af7, type: 3}
-  m_PrefabInstance: {fileID: 5223021610797107577}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &726691367
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 726691362}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d2dc0c02d4eda4741b3f1541b943f30b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &751728130
 GameObject:
   m_ObjectHideFlags: 0
@@ -4881,14 +4855,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 811012516455199253, guid: c14ecefd91fab134ea0c13cd183c6af7, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 793793196391594778, guid: c14ecefd91fab134ea0c13cd183c6af7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 726691367}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c14ecefd91fab134ea0c13cd183c6af7, type: 3}
 --- !u!1001 &6335861731142365448
 PrefabInstance:
