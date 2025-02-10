@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public float flashlightRange = 4f;
     [SerializeField] public float battery;
     [SerializeField] public float maxBattery = 100f;
+    [HideInInspector] public bool flashlightOn = false;
 
     [Header("Guide")]
     [SerializeField] public string gameObjective = "What should I do?";
@@ -72,19 +73,7 @@ public class GameManager : MonoBehaviour
             npcStates.Add(id, newNpc);
         }
             
-    }
-
-    private void PrintAllNpc()
-    {
-        if (Input.GetKeyDown(KeyCode.Tab))
-            foreach (var npc in npcStates)
-            {
-                Debug.Log($"{npc.Key} - {npc.Value.npcName}");
-            }
-            
-    }
-
-    
+    }  
 
     public void UpdateNPC(int id, bool isActive, string npcName, int dialogIndex)
     {
@@ -101,7 +90,6 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         DebugBackToMenu();
-        PrintAllNpc();
     }
 
     public void ChangeObjective(string objective)
@@ -186,6 +174,8 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            Destroy(TransitionManager.Instantiate(gameObject));
+            Destroy(gameObject);
             SceneManager.LoadScene(0);
         }
     }

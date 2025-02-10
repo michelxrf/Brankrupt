@@ -28,7 +28,7 @@ public class FlashlightMouse : MonoBehaviour
     private void Start()
     {
         hud.ShowBatteryLevel();
-        Switch_light(false);
+        Switch_light(GameManager.Instance.flashlightOn);
         lightTrail.pointLightOuterRadius = GameManager.Instance.flashlightRange;
     }
 
@@ -70,6 +70,7 @@ public class FlashlightMouse : MonoBehaviour
     private void Switch_light(bool new_state)
     {
         is_on = new_state;
+        GameManager.Instance.flashlightOn = new_state;
         lightCollider.enabled = new_state;
         lightFocus.enabled = is_on;
         lightTrail.enabled = is_on;
