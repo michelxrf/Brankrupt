@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCStateHolder : MonoBehaviour
+public class NPCStateHolder
 {
     public int id = -1;
     public bool active = false;
     public int dialog_index = -1;
     public string npcName = string.Empty;
+
+    public NPCStateHolder() { }
 
     public bool AssertCorrectConfig()
     {

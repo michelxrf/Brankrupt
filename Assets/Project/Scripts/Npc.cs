@@ -81,6 +81,11 @@ public class Npc : MonoBehaviour
         Interaction();
     }
 
+    public void CallTransition(int id)
+    {
+        TransitionManager.Instance.TransitionTo(id);
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))

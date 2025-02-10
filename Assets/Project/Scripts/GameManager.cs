@@ -85,19 +85,7 @@ public class GameManager : MonoBehaviour
             
     }
 
-    public void SkipToNextDialog(int npcId)
-    {
-        if (GameManager.Instance.npcStates.TryGetValue(npcId, out var npc))
-        {
-            UpdateNPC(npcId, npc.active, npc.npcName, npc.dialog_index + 1);
-        }
-        else
-        {
-            Debug.LogError("Npc index not found when skipping dialog");
-        }
-
-        
-    }
+    
 
     public void UpdateNPC(int id, bool isActive, string npcName, int dialogIndex)
     {
@@ -129,10 +117,9 @@ public class GameManager : MonoBehaviour
     }
     private void InitItemsList()
     {
-        allItemsInGame.Add("agenda", "InventoryIcons/genericItem_color_155");
-        allItemsInGame.Add("documentos", "InventoryIcons/genericItem_color_155");
-        allItemsInGame.Add("documents", "InventoryIcons/genericItem_color_148");
-        allItemsInGame.Add("screwdriver", "InventoryIcons/genericItem_color_005");
+        allItemsInGame.Add("agenda", "InventoryIcons/agenda");
+        allItemsInGame.Add("documentos", "InventoryIcons/documento");
+        allItemsInGame.Add("chave", "InventoryIcons/chave_vermelha");
     }
 
     public void Pause()
@@ -175,15 +162,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void DeactivateNPC(int id)
-    {
-        UpdateNPC(id, false, npcStates[id].npcName, npcStates[id].dialog_index);
-    }
-
-    public void ActivateNPC(int id)
-    {
-        UpdateNPC(id, true, npcStates[id].npcName, npcStates[id].dialog_index);
-    }
+    
 
     public void Clear_Inventory()
     {
