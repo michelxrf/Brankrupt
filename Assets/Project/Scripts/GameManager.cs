@@ -174,7 +174,8 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Destroy(TransitionManager.Instantiate(gameObject));
+            Destroy(TransitionManager.Instance.gameObject);
+            Destroy(AudioManager.Instance.gameObject);
             Destroy(gameObject);
             SceneManager.LoadScene(0);
         }
