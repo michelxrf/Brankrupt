@@ -27,16 +27,15 @@ public class TransitionManager : MonoBehaviour
     {
         transitionToPosition = position;
         has_transitioned = true;
-        SceneManager.LoadScene(scene_index);
-        GameManager.Instance.is_paused = false;
-        GameManager.Instance.player_busy = false;
+        TransitionTo(scene_index);
     }
 
     public void TransitionTo(int scene_index)
     {
-        Debug.Log("Transition Called");
-        SceneManager.LoadScene(scene_index);
         GameManager.Instance.is_paused = false;
         GameManager.Instance.player_busy = false;
+        if (scene_index == 0)
+            Destroy(GameManager.Instance);
+        SceneManager.LoadScene(scene_index);
     }
 }

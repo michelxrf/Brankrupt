@@ -23,6 +23,11 @@ public class DialogueHekper : MonoBehaviour
 
     }
 
+    public void NewObjective(string text)
+    {
+        GameManager.Instance.ChangeObjective(text);
+    }
+
     public void DeactivateNPC(int id)
     {
         GameManager.Instance.UpdateNPC(id, false, GameManager.Instance.npcStates[id].npcName, GameManager.Instance.npcStates[id].dialog_index);
