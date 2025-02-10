@@ -44,5 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3c37bcd4f9de434782fff4516b7ea2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hud: {fileID: 0}
   is_paused: 0
   player_busy: 0
+  inventory: []
+  batteryDrain: 1
+  flashlightRange: 4
+  battery: 0
+  maxBattery: 100
+  gameObjective: 

@@ -35,7 +35,7 @@ public class TransitionManager : MonoBehaviour
         GameManager.Instance.is_paused = false;
         GameManager.Instance.player_busy = false;
         if (scene_index == 0)
-            Destroy(GameManager.Instance);
+            Destroy(GameManager.Instance.gameObject);
         SceneManager.LoadScene(scene_index);
     }
 }
