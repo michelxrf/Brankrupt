@@ -10,7 +10,6 @@ public class FlashlightMouse : MonoBehaviour
     [SerializeField] Collider2D lightCollider;
     [SerializeField] player_controller player;
     [SerializeField] AudioSource click;
-    [SerializeField] hud_manager hud;
 
     private Vector3 flashlightInitialPos;
     private bool is_on;
@@ -21,13 +20,11 @@ public class FlashlightMouse : MonoBehaviour
     {
         cam = Camera.main;
         flashlightInitialPos = transform.localPosition;
-        hud = FindAnyObjectByType<hud_manager>();
     }
 
     // Start is called before the first frame update
     private void Start()
     {
-        hud.ShowBatteryLevel();
         Switch_light(GameManager.Instance.flashlightOn);
         lightTrail.pointLightOuterRadius = GameManager.Instance.flashlightRange;
     }
@@ -39,22 +36,30 @@ public class FlashlightMouse : MonoBehaviour
             return;
 
         Process_Input();
-        PositionLightAtMouse();
         Drain_Battery();
     }
 
+    private void FixedUpdate()
+    {
+        if (GameManager.Instance.is_paused || GameManager.Instance.player_busy)
+            return;
+
+        PositionLightAtMouse();
+    }
     private void Drain_Battery()
     {
-        hud.UpdateBattery(GameManager.Instance.battery / GameManager.Instance.maxBattery);
         if (is_on)
         {
-            GameManager.Instance.battery -= Time.deltaTime * GameManager.Instance.batteryDrain;
+            
+            Mathf.Clamp(GameManager.Instance.battery -= Time.deltaTime * GameManager.Instance.batteryDrain, 0f, GameManager.Instance.maxBattery);
 
             if (GameManager.Instance.battery <= 0)
             {
                 Switch_light(false);
             }
         }
+
+        GameManager.Instance.hud.UpdateBattery(GameManager.Instance.battery);
     }
 
     private void Process_Input()

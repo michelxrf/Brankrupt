@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 public class Dummy : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Dummy : MonoBehaviour
     private float animationSpeed;
     private Animator animator;
     [SerializeField] private GameObject sprite;
+    private int beingIlluminatedByCount = 0;
 
     private void Awake()
     {
@@ -46,6 +48,20 @@ public class Dummy : MonoBehaviour
         {
             target = GameObject.FindGameObjectWithTag("Player").transform;
         }
+
+        UpdateWalk();
+    }
+
+    private void UpdateWalk()
+    {
+        if (navAgent.velocity.magnitude < navAgent.speed * .1f)
+        {
+            animator.speed = 0f;
+        }
+        else if (navAgent.speed > 0f)
+        {
+            animator.speed = animationSpeed;
+        }
     }
 
     private void GetLight()
@@ -66,11 +82,17 @@ public class Dummy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        GetLight();
+        beingIlluminatedByCount++;
+
+        if (beingIlluminatedByCount > 0)
+            GetLight();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        GetDark();
+        beingIlluminatedByCount--;
+
+        if (beingIlluminatedByCount <= 0)
+            GetDark();
     }
 }

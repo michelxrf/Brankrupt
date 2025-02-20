@@ -36,7 +36,7 @@ public class pickable_object : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && can_interact)
         {
-            GameManager.Instance.Add_Item_To_Inventory(item_name);
+            GameManager.Instance.RechargeBattery();
             Destroy(gameObject);
         }
     }

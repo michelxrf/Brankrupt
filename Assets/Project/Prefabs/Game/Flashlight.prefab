@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9164899330480329446}
   m_Layer: 7
   m_Name: Flashlight
-  m_TagString: Untagged
+  m_TagString: flashlight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,14 +50,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightBlockLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   lightFocus: {fileID: 8999487346277446738}
   lightTrail: {fileID: 8456034732399676407}
   LightLamp: {fileID: 7249230214109469892}
   lightCollider: {fileID: 5920116533715120732}
   player: {fileID: 0}
   click: {fileID: 9164899330480329446}
-  hud: {fileID: 0}
 --- !u!82 &9164899330480329446
 AudioSource:
   m_ObjectHideFlags: 0
@@ -164,6 +163,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1033750473075569897}
   - component: {fileID: 8456034732399676407}
+  - component: {fileID: 4452620829393763816}
   m_Layer: 7
   m_Name: FlashlightTrail
   m_TagString: Untagged
@@ -236,6 +236,18 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &4452620829393763816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3663748314877412015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94290dcf4345fab4f8e158a3e73b5459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3944647770966292376
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,6 +258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7495080629214816227}
   - component: {fileID: 7249230214109469892}
+  - component: {fileID: 896566626874131569}
   m_Layer: 7
   m_Name: LampShine
   m_TagString: Untagged
@@ -318,6 +331,18 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &896566626874131569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3944647770966292376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94290dcf4345fab4f8e158a3e73b5459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4413976460604163894
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,6 +354,7 @@ GameObject:
   - component: {fileID: 1795022690077453241}
   - component: {fileID: 8999487346277446738}
   - component: {fileID: 5920116533715120732}
+  - component: {fileID: 5160430593829088172}
   m_Layer: 7
   m_Name: FlashlightFocus
   m_TagString: lightSource
@@ -368,7 +394,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -416,7 +442,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -436,3 +462,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &5160430593829088172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4413976460604163894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94290dcf4345fab4f8e158a3e73b5459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

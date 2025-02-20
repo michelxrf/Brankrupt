@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7014169861637161985}
   - component: {fileID: 6545930171279198433}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: UI_Tips_Global Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}

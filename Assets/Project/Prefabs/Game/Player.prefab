@@ -376,6 +376,7 @@ MonoBehaviour:
   flashlight: {fileID: 3085235595701090019}
   walkSpeed: 100
   speedMultiplierWhenBackwards: 1
+  illuminated: 0
 --- !u!81 &7348311584746365228
 AudioListener:
   m_ObjectHideFlags: 0
@@ -492,9 +493,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flashlight
       objectReference: {fileID: 0}
+    - target: {fileID: 3663748314877412015, guid: 621c62fda03343c4e8718e47228b1796, type: 3}
+      propertyPath: m_TagString
+      value: flashlight
+      objectReference: {fileID: 0}
+    - target: {fileID: 3944647770966292376, guid: 621c62fda03343c4e8718e47228b1796, type: 3}
+      propertyPath: m_TagString
+      value: flashlight
+      objectReference: {fileID: 0}
     - target: {fileID: 4413976460604163894, guid: 621c62fda03343c4e8718e47228b1796, type: 3}
-      propertyPath: m_Layer
-      value: 7
+      propertyPath: m_TagString
+      value: flashlight
       objectReference: {fileID: 0}
     - target: {fileID: 4907862839788961006, guid: 621c62fda03343c4e8718e47228b1796, type: 3}
       propertyPath: m_LocalPosition.x
@@ -540,17 +549,9 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 4588260289022241322}
-    - target: {fileID: 4997728203185344196, guid: 621c62fda03343c4e8718e47228b1796, type: 3}
-      propertyPath: LightLamp
-      value: 
-      objectReference: {fileID: 7906131074778482615}
-    - target: {fileID: 4997728203185344196, guid: 621c62fda03343c4e8718e47228b1796, type: 3}
-      propertyPath: lightBlockLayerMask.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 8999487346277446738, guid: 621c62fda03343c4e8718e47228b1796, type: 3}
-      propertyPath: m_Intensity
-      value: 1
+    - target: {fileID: 5920116533715120732, guid: 621c62fda03343c4e8718e47228b1796, type: 3}
+      propertyPath: m_Radius
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -567,14 +568,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4907862839788961006, guid: 621c62fda03343c4e8718e47228b1796, type: 3}
   m_PrefabInstance: {fileID: 658167842065046387}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7906131074778482615 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7249230214109469892, guid: 621c62fda03343c4e8718e47228b1796, type: 3}
-  m_PrefabInstance: {fileID: 658167842065046387}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -26,6 +26,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] public float maxBattery = 100f;
     [HideInInspector] public bool flashlightOn = false;
 
+    [Header("Sanity")]
+    [SerializeField] public float maxSanityLevel = 100f;
+    [SerializeField] public float sanityDrain = 10f;
+    [HideInInspector] public float currentSanityLevel;
+    [SerializeField] public float globalLightTreshold = .25f;
+    [SerializeField] public float currentGlobalLight = 0f;
+
     [Header("Guide")]
     [SerializeField] public string gameObjective = "What should I do?";
 
@@ -45,6 +52,7 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(this);
             InitFlashlight();
             InitItemsList();
+            InitSanity();
         }
 
     }
@@ -96,6 +104,11 @@ public class GameManager : MonoBehaviour
     {
         gameObjective = objective;
         hud.UpdateObjective();
+    }
+
+    private void InitSanity()
+    {
+        currentSanityLevel = maxSanityLevel;
     }
 
     private void InitFlashlight()
@@ -174,10 +187,15 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Destroy(TransitionManager.Instance.gameObject);
-            Destroy(AudioManager.Instance.gameObject);
-            Destroy(gameObject);
-            SceneManager.LoadScene(0);
+            GameOver();
         }
+    }
+
+    public void GameOver()
+    {
+        Destroy(TransitionManager.Instance.gameObject);
+        Destroy(AudioManager.Instance.gameObject);
+        Destroy(gameObject);
+        SceneManager.LoadScene(0);
     }
 }

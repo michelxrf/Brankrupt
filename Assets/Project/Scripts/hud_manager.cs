@@ -8,18 +8,20 @@ using UnityEngine.UI;
 public class hud_manager : MonoBehaviour
 {
     [SerializeField] Slider battery_level;
+    [SerializeField] Slider sanityLevel;
     [SerializeField] GameObject inventoryItemPrefab;
     [SerializeField] GameObject itemList;
     [SerializeField] TextMeshProUGUI currentObjective;
 
     private void Awake()
     {
-        battery_level.gameObject.SetActive(false);
     }
 
     private void Start()
     {
         GameManager.Instance.hud = this;
+        battery_level.maxValue = GameManager.Instance.maxBattery;
+        sanityLevel.maxValue = GameManager.Instance.maxSanityLevel;
         UpdateInventory();
         UpdateObjective();
     }
@@ -27,6 +29,11 @@ public class hud_manager : MonoBehaviour
     public void UpdateBattery(float value)
     {
         battery_level.value = value;
+    }
+
+    public void UpdateSanity(float value)
+    {
+        sanityLevel.value = value;
     }
 
     public void UpdateInventory()
@@ -61,10 +68,5 @@ public class hud_manager : MonoBehaviour
             }
 
         }
-    }
-
-    public void ShowBatteryLevel()
-    {
-        battery_level.gameObject.SetActive(true);
     }
 }
