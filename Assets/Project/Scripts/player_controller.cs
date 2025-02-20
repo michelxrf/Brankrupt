@@ -146,7 +146,7 @@ public class player_controller : MonoBehaviour
 
         if (!illuminated && !GameManager.Instance.flashlightOn)
         {
-            Mathf.Clamp(GameManager.Instance.currentSanityLevel -= Time.deltaTime * GameManager.Instance.sanityDrain, 0f, GameManager.Instance.maxSanityLevel);
+            GameManager.Instance.currentSanityLevel = Mathf.Clamp(GameManager.Instance.currentSanityLevel -= Time.deltaTime * GameManager.Instance.sanityDrain, 0f, GameManager.Instance.maxSanityLevel);
             if (GameManager.Instance.currentSanityLevel <= 0)
             {
                 GameManager.Instance.GameOver();
@@ -154,7 +154,7 @@ public class player_controller : MonoBehaviour
         }
         else
         {
-            Mathf.Clamp(GameManager.Instance.currentSanityLevel += Time.deltaTime * (GameManager.Instance.sanityDrain * .25f), 0f, GameManager.Instance.maxSanityLevel);
+            GameManager.Instance.currentSanityLevel = Mathf.Clamp(GameManager.Instance.currentSanityLevel += Time.deltaTime * (GameManager.Instance.sanityDrain * .25f), 0f, GameManager.Instance.maxSanityLevel);
         }
 
         GameManager.Instance.hud.UpdateSanity(GameManager.Instance.currentSanityLevel);
