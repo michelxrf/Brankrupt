@@ -44,3 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52c8dfc075f8d3742abc720a9d14b779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  obstacleSizeFactor: 1.2
+  colliderSizeFactor: 0.7

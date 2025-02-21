@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public float battery;
     [SerializeField] public float maxBattery = 100f;
     [HideInInspector] public bool flashlightOn = false;
+    [HideInInspector] public bool hasBattery;
 
     [Header("Sanity")]
     [SerializeField] public float maxSanityLevel = 100f;
@@ -187,11 +188,18 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            GameOver();
+            BackToMenu();
         }
     }
 
     public void GameOver()
+    {
+        player_busy = true;
+        // TODO: play Death Anim
+        hud.GameOver();
+    }
+
+    public void BackToMenu()
     {
         Destroy(TransitionManager.Instance.gameObject);
         Destroy(AudioManager.Instance.gameObject);

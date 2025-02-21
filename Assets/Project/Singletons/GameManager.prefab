@@ -48,8 +48,15 @@ MonoBehaviour:
   is_paused: 0
   player_busy: 0
   inventory: []
-  batteryDrain: 1
+  batteryDrain: 5
   flashlightRange: 4
   battery: 0
   maxBattery: 100
+  flashlightOn: 0
+  hasBattery: 0
+  maxSanityLevel: 100
+  sanityDrain: 10
+  currentSanityLevel: 0
+  globalLightTreshold: 0.25
+  currentGlobalLight: 0
   gameObjective: 

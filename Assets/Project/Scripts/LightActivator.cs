@@ -9,6 +9,10 @@ using NavMeshPlus.Components;
 
 public class LightActivator : MonoBehaviour
 {
+    [SerializeField] float obstacleSizeFactor = 1.2f;
+    [SerializeField] float colliderSizeFactor = .7f;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +42,7 @@ public class LightActivator : MonoBehaviour
             NavMeshObstacle newObstacle = light.gameObject.AddComponent<NavMeshObstacle>();
             newObstacle.shape = NavMeshObstacleShape.Capsule;
             newObstacle.height = .1f;
-            newObstacle.radius = light.pointLightOuterRadius;
+            newObstacle.radius = light.pointLightOuterRadius * obstacleSizeFactor;
             newObstacle.carving = true;
         }
     }

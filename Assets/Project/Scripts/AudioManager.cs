@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    [SerializeField] private AudioSource ambiance;
+    
     public static AudioManager Instance;
-
 
     private void Awake()
     {
@@ -20,5 +21,16 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void SetAmbience(bool newState)
+    {
+        if (newState)
+        {
+            ambiance.Play();
+        }
+        else
+        {
+            ambiance.Stop();
+        }
+    }
 
 }

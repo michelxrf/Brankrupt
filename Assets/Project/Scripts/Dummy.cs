@@ -14,6 +14,7 @@ public class Dummy : MonoBehaviour
     private Animator animator;
     [SerializeField] private GameObject sprite;
     private int beingIlluminatedByCount = 0;
+    Vector2 originalSize;
 
     private void Awake()
     {
@@ -25,9 +26,16 @@ public class Dummy : MonoBehaviour
         navAgent.speed = speed;
 
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        originalSize = GetComponent<CapsuleCollider2D>().size;
     }
+    
 
     private void Start()
+    {
+        GetComponent<CapsuleCollider2D>().size = originalSize;
+    }
+
+    private void LateUpdate()
     {
         MagicTrick();
     }
@@ -35,7 +43,7 @@ public class Dummy : MonoBehaviour
     private void MagicTrick()
     {
         // gambiarra pra rotacionar o sprite pq o NavMeshAgent rotaciona o objeto e nao deveria
-        sprite.transform.Rotate(-90f, 0, 0);
+        transform.Rotate(90f, 0, 0);
     }
 
     private void Update()
@@ -54,6 +62,9 @@ public class Dummy : MonoBehaviour
 
     private void UpdateWalk()
     {
+        if (GameManager.Instance.player_busy ||  GameManager.Instance.is_paused)
+            return;
+
         if (navAgent.velocity.magnitude < navAgent.speed * .1f)
         {
             animator.speed = 0f;

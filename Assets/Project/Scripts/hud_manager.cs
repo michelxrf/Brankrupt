@@ -7,20 +7,36 @@ using UnityEngine.UI;
 
 public class hud_manager : MonoBehaviour
 {
-    [SerializeField] Slider battery_level;
+    [Header("Flashlight")]
+    [SerializeField] Slider batteryMeter;
+    [SerializeField] Image batteryFiller;
+    [SerializeField] Color fullBatteryColor;
+    [SerializeField] Color lowBatteryColor;
+
+    [Header("Sanity")]
     [SerializeField] Slider sanityLevel;
+
+    [Header("Inventory")]
     [SerializeField] GameObject inventoryItemPrefab;
     [SerializeField] GameObject itemList;
-    [SerializeField] TextMeshProUGUI currentObjective;
+
+    [Header("Objective Marker")]
+    [SerializeField] GameObject currentObjectiveObject;
+    [SerializeField] TextMeshProUGUI currentObjectiveText;
+
+    [Header("Game Over")]
+    [SerializeField] AudioSource gameoverSfx;
+    [SerializeField] GameObject gameoverScreen;
 
     private void Awake()
     {
+        gameoverScreen.SetActive(false);
     }
 
     private void Start()
     {
         GameManager.Instance.hud = this;
-        battery_level.maxValue = GameManager.Instance.maxBattery;
+        batteryMeter.maxValue = GameManager.Instance.maxBattery;
         sanityLevel.maxValue = GameManager.Instance.maxSanityLevel;
         UpdateInventory();
         UpdateObjective();
@@ -28,7 +44,8 @@ public class hud_manager : MonoBehaviour
 
     public void UpdateBattery(float value)
     {
-        battery_level.value = value;
+        batteryMeter.value = value;
+        batteryFiller.color = Color.Lerp(lowBatteryColor, fullBatteryColor, value / GameManager.Instance.maxBattery);
     }
 
     public void UpdateSanity(float value)
@@ -42,9 +59,19 @@ public class hud_manager : MonoBehaviour
         FillInventory();
     }
 
+    public void GameOver()
+    {
+        currentObjectiveObject.SetActive(false);
+        itemList.gameObject.SetActive(false);
+        sanityLevel.gameObject.SetActive(false);
+        batteryMeter.gameObject.SetActive(false);
+        gameoverScreen.SetActive(true);
+        AudioManager.Instance.SetAmbience(false);
+        gameoverSfx.Play();
+    }
     public void UpdateObjective()
     {
-        currentObjective.text = GameManager.Instance.gameObjective;
+        currentObjectiveText.text = GameManager.Instance.gameObjective;
     }
 
     private void FillInventory()
@@ -58,6 +85,10 @@ public class hud_manager : MonoBehaviour
         
     }
 
+    public void BackToMenu()
+    {
+        GameManager.Instance.BackToMenu();
+    }
     private void ClearInventory()
     {
         foreach (Transform line in itemList.GetComponentsInChildren<Transform>())
