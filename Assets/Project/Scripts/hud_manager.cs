@@ -66,7 +66,6 @@ public class hud_manager : MonoBehaviour
         sanityLevel.gameObject.SetActive(false);
         batteryMeter.gameObject.SetActive(false);
         gameoverScreen.SetActive(true);
-        AudioManager.Instance.SetAmbience(false);
         gameoverSfx.Play();
     }
     public void UpdateObjective()

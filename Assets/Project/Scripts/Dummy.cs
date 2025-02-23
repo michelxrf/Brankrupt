@@ -15,10 +15,12 @@ public class Dummy : MonoBehaviour
     [SerializeField] private GameObject sprite;
     private int beingIlluminatedByCount = 0;
     Vector2 originalSize;
+    private AudioSource footSteps;
 
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
+        footSteps = GetComponent<AudioSource>();
         animationSpeed = animator.speed;
         navAgent = GetComponent<NavMeshAgent>();
         navAgent.updateRotation = false;
@@ -65,12 +67,19 @@ public class Dummy : MonoBehaviour
         if (GameManager.Instance.player_busy ||  GameManager.Instance.is_paused)
             return;
 
-        if (navAgent.velocity.magnitude < navAgent.speed * .1f)
+        if (navAgent.velocity.magnitude <= navAgent.speed * .1f)
         {
+            footSteps.Stop();
             animator.speed = 0f;
         }
         else if (navAgent.speed > 0f)
         {
+            if(!footSteps.isPlaying)
+            {
+                footSteps.time = 0f;
+                footSteps.Play();
+            }
+
             animator.speed = animationSpeed;
         }
     }
@@ -79,24 +88,27 @@ public class Dummy : MonoBehaviour
     {
         navAgent.speed = 0f;
         animator.speed = 0f;
-
-        Debug.Log("monster is in the LIGHT");
     }
 
     private void GetDark()
     {
         navAgent.speed = speed;
         animator.speed = animationSpeed;
-
-        Debug.Log("monster is in the DARK");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        beingIlluminatedByCount++;
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            GameManager.Instance.GameOver();
+        }
+        else
+        {
+            beingIlluminatedByCount++;
 
-        if (beingIlluminatedByCount > 0)
-            GetLight();
+            if (beingIlluminatedByCount > 0)
+                GetLight();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

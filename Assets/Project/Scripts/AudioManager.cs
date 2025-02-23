@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] private AudioSource ambiance;
+    [SerializeField] private AudioSource doorOpen;
+    [SerializeField] private AudioSource lowSanity;
+    [SerializeField] private float lowSanityInitVolume;
     
     public static AudioManager Instance;
 
@@ -12,25 +16,38 @@ public class AudioManager : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
         else
         {
             Instance = this;
             DontDestroyOnLoad(this);
+            lowSanityInitVolume = lowSanity.volume;
         }
     }
-
-    public void SetAmbience(bool newState)
+    public void PlayDoor()
     {
-        if (newState)
+        doorOpen.Play();
+    }
+
+    public void GameOver()
+    {
+        ambiance.Stop();
+        lowSanity.Stop();
+    }
+
+    public void Door()
+    {
+        doorOpen.Play();
+    }
+
+    private void Update()
+    {
+        if (GameManager.Instance != null)
         {
-            ambiance.Play();
+            lowSanity.volume = (1 - GameManager.Instance.currentSanityLevel / GameManager.Instance.maxSanityLevel) * lowSanityInitVolume;
         }
-        else
-        {
-            ambiance.Stop();
-        }
+        
     }
 
 }

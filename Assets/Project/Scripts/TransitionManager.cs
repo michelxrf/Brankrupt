@@ -1,20 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class TransitionManager : MonoBehaviour
 {
     public static TransitionManager Instance { get; private set; }
     public Vector2 transitionToPosition;
     public bool has_transitioned = false;
+    [SerializeField] private Image fadePanel;
+    [SerializeField] float fadeDuration = 1f;
 
     private void Awake()
     {
 
         if (Instance != null && Instance != this)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
         else
         {
@@ -23,19 +27,64 @@ public class TransitionManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        fadePanel.gameObject.SetActive(true);
+        StartCoroutine(FadeFromBlack());
+    }
+
+    private IEnumerator FadeFromBlack()
+    {
+        Color panelColor = fadePanel.color;
+        float startAlpha = 1f;
+
+        for (float t = 0; t < fadeDuration; t += Time.deltaTime)
+        {
+            float normalizedTime = t / fadeDuration;
+            panelColor.a = Mathf.Lerp(startAlpha, 0, normalizedTime);
+            fadePanel.color = panelColor;
+            yield return null;
+        }
+
+        panelColor.a = 0;
+        fadePanel.color = panelColor;
+    }
+
+    private IEnumerator FadeToBlack()
+    {
+        Color panelColor = fadePanel.color;
+        float startAlpha = 0f;
+
+        for (float t = 0; t < fadeDuration; t += Time.deltaTime)
+        {
+            float normalizedTime = t / fadeDuration;
+            panelColor.a = Mathf.Lerp(startAlpha, 1, normalizedTime);
+            fadePanel.color = panelColor;
+            yield return null;
+        }
+
+        panelColor.a = 1;
+        fadePanel.color = panelColor;
+    }
+
     public void TransitionTo(int scene_index, Vector2 position)
     {
         transitionToPosition = position;
         has_transitioned = true;
-        TransitionTo(scene_index);
+        StartCoroutine(TransitionTo(scene_index));
     }
 
-    public void TransitionTo(int scene_index)
+    public IEnumerator TransitionTo(int scene_index)
     {
         GameManager.Instance.is_paused = false;
         GameManager.Instance.player_busy = false;
+
+        yield return FadeToBlack();
+
         if (scene_index == 0)
             Destroy(GameManager.Instance.gameObject);
         SceneManager.LoadScene(scene_index);
+
+        StartCoroutine(FadeFromBlack());
     }
 }

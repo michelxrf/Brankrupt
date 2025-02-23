@@ -6,7 +6,7 @@ public class DialogueHekper : MonoBehaviour
 { 
     public void CallTransition(int id)
     {
-        TransitionManager.Instance.TransitionTo(id);
+        StartCoroutine(TransitionManager.Instance.TransitionTo(id));
     }
 
     public void SkipToNextDialog(int npcId)

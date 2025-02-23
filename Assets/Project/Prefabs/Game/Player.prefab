@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 3424881290969616963}
   - component: {fileID: 255309821076715597}
   - component: {fileID: 6503997388122471551}
+  - component: {fileID: 1647851946764082962}
   m_Layer: 2
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -247,6 +248,20 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &1647851946764082962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3475441072803526753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a0fe5c570abd624791f52f1233e1fe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intesity: 0.2
+  sanityThreshold: 1
 --- !u!1 &6923213202580898572
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,6 +566,10 @@ PrefabInstance:
       objectReference: {fileID: 4588260289022241322}
     - target: {fileID: 5920116533715120732, guid: 621c62fda03343c4e8718e47228b1796, type: 3}
       propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8999487346277446738, guid: 621c62fda03343c4e8718e47228b1796, type: 3}
+      propertyPath: m_PointLightOuterRadius
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
 
         if (Instance != null && Instance != this)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
         else
         {
@@ -197,6 +197,7 @@ public class GameManager : MonoBehaviour
         player_busy = true;
         // TODO: play Death Anim
         hud.GameOver();
+        AudioManager.Instance.GameOver();
     }
 
     public void BackToMenu()

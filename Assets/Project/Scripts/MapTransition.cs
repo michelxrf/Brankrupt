@@ -5,6 +5,7 @@ public class MapTransition : MonoBehaviour
     [SerializeField] int mapIndex;
     [SerializeField] Vector2 mapTransitionPosition;
     [SerializeField] bool instantTransition = true;
+    [SerializeField] bool isDoor = false;
     [SerializeField] GameObject interaction_tip;
 
     private bool can_interact = false;
@@ -32,6 +33,9 @@ public class MapTransition : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E) && can_interact)
         {
+            if (isDoor)
+                AudioManager.Instance.PlayDoor();
+
             TransitionManager.Instance.TransitionTo(mapIndex, mapTransitionPosition);
         }
     }
