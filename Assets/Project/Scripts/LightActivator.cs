@@ -12,12 +12,11 @@ public class LightActivator : MonoBehaviour
     [SerializeField] float obstacleSizeFactor = 1.2f;
     [SerializeField] float colliderSizeFactor = .7f;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         InitializeAllLights();
         UpdateNavMesh();
+        Destroy(gameObject);
     }
 
     private void InitializeAllLights()

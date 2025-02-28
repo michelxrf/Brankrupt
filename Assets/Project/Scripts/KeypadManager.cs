@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 public class KeypadManager : MonoBehaviour
 {
@@ -10,6 +13,10 @@ public class KeypadManager : MonoBehaviour
     [SerializeField] private AudioSource buttonPressSfx;
     [SerializeField] private AudioSource successSfx;
     [SerializeField] private AudioSource failSfx;
+    [SerializeField] private GameObject door;
+    [SerializeField] private GameObject buttonArray;
+    [SerializeField] private GameObject interaction;
+    [SerializeField] private GameObject keypadLight;
     private string currentPassword = string.Empty;
 
     public void NumberPressed(int value)
@@ -41,8 +48,10 @@ public class KeypadManager : MonoBehaviour
         
     }
 
-    private void Start()
+    private void Awake()
     {
+        gameObject.SetActive(false);
+        display.text = string.Empty;
     }
 
     public void HidePanel()
@@ -74,7 +83,7 @@ public class KeypadManager : MonoBehaviour
 
         if (currentPassword == correctPassowrd)
         {
-           Unlock();
+           GoodPassword();
         }
         else
         {
@@ -82,22 +91,64 @@ public class KeypadManager : MonoBehaviour
         }
     }
 
+    private void DisableButtons(bool newState)
+    {
+        foreach (var bt in buttonArray.GetComponentsInChildren<Button>())
+        {
+            bt.enabled = !newState;
+        }
+    }
+
     private void Incorrect()
     {
         failSfx.Play();
 
-        currentPassword = string.Empty;
+        display.color = Color.red;
+        currentPassword = "----";
         UpdateDisplay();
+        StartCoroutine(AutoResetAfterFail());
+    }
+
+    private IEnumerator AutoResetAfterFail()
+    {
+        DisableButtons(true);
+        yield return new WaitForSeconds(1);
+        currentPassword = string.Empty;
+        display.color = Color.white;
+        UpdateDisplay();
+        DisableButtons(false);
+    }
+
+    private IEnumerator AutoHideAfterUnlock()
+    {
+        DisableButtons(true);
+        yield return new WaitForSeconds(1);
+        currentPassword = string.Empty;
+        display.color = Color.white;
+        UpdateDisplay();
+        Unlock();
+        HidePanel();
+        DisableButtons(false);
     }
 
     private void Unlock()
     {
-        AudioManager.Instance.PlayDoor();
+        door.GetComponent<BoxCollider2D>().enabled = false;
+        door.GetComponent<Animator>().Play("Open");
+        interaction.SetActive(false);
+    }
 
-        currentPassword = string.Empty;
+    private void GoodPassword()
+    {
+        successSfx.Play();
+        keypadLight.GetComponent<Light2D>().color = Color.green;
+
+        display.color = Color.green;
+
+        currentPassword = "----";
         UpdateDisplay();
 
-        HidePanel();
+        StartCoroutine(AutoHideAfterUnlock());
     }
 
     private void UpdateDisplay()
