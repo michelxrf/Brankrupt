@@ -154,7 +154,7 @@ public class player_controller : MonoBehaviour
         }
         else
         {
-            GameManager.Instance.currentSanityLevel = Mathf.Clamp(GameManager.Instance.currentSanityLevel += Time.deltaTime * (GameManager.Instance.sanityDrain * .75f), 0f, GameManager.Instance.maxSanityLevel);
+            GameManager.Instance.currentSanityLevel = Mathf.Clamp(GameManager.Instance.currentSanityLevel += Time.deltaTime * (GameManager.Instance.sanityDrain * GameManager.Instance.sanityRecoveryFactor), 0f, GameManager.Instance.maxSanityLevel);
         }
 
         GameManager.Instance.hud.UpdateSanity(GameManager.Instance.currentSanityLevel);

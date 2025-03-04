@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public float currentSanityLevel;
     [SerializeField] public float globalLightTreshold = .25f;
     [SerializeField] public float currentGlobalLight = 0f;
+    [SerializeField] public float sanityRecoveryFactor = 1.5f;
 
     [Header("Guide")]
     [SerializeField] public string gameObjective = "What should I do?";

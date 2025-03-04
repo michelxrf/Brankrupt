@@ -23,6 +23,11 @@ public class DialogueHekper : MonoBehaviour
 
     }
 
+    public void RechargeBattery()
+    {
+        GameManager.Instance.RechargeBattery();
+    }
+
     public void NewObjective(string text)
     {
         GameManager.Instance.ChangeObjective(text);
