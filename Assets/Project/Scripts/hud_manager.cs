@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,15 +28,23 @@ public class hud_manager : MonoBehaviour
     private void Awake()
     {
         gameoverScreen.SetActive(false);
+        batteryMeter.gameObject.SetActive(false);
     }
 
     private void Start()
     {
+       batteryMeter.gameObject.SetActive(GameManager.Instance.hasFlashlight);
+
         GameManager.Instance.hud = this;
         batteryMeter.maxValue = GameManager.Instance.maxBattery;
         sanityLevel.maxValue = GameManager.Instance.maxSanityLevel;
         UpdateInventory();
         UpdateObjective();
+    }
+
+    public void PickupFlashlight()
+    {
+        batteryMeter.gameObject.SetActive(true);
     }
 
     public void UpdateBattery(float value)

@@ -10,10 +10,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [HideInInspector] public static GameManager Instance { get; private set; }
-
     [HideInInspector] public hud_manager hud;
     [HideInInspector] public bool is_paused;
     [HideInInspector] public bool player_busy;
+    [HideInInspector] public player_controller player;
 
     [Header("Inventory")]
     [SerializeField] public List<string> inventory = new List<string>();
@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public float battery;
     [SerializeField] public float maxBattery = 100f;
     [HideInInspector] public bool flashlightOn = false;
-    [HideInInspector] public bool hasBattery;
+    [SerializeField] public bool hasFlashlight = false;
 
     [Header("Sanity")]
     [SerializeField] public float maxSanityLevel = 100f;
@@ -84,6 +84,14 @@ public class GameManager : MonoBehaviour
         }
             
     }  
+
+    public void PickupFlashlight()
+    {
+        battery = maxBattery;
+        hasFlashlight = true;
+        player.ChangeFlashlightAnim();
+        hud.PickupFlashlight();
+    }
 
     public void UpdateNPC(int id, bool isActive, string npcName, int dialogIndex)
     {

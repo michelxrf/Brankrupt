@@ -25,14 +25,14 @@ public class FlashlightMouse : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        Switch_light(GameManager.Instance.flashlightOn);
+        Switch_light(GameManager.Instance.flashlightOn && GameManager.Instance.hasFlashlight);
         lightTrail.pointLightOuterRadius = GameManager.Instance.flashlightRange;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if (GameManager.Instance.is_paused || GameManager.Instance.player_busy)
+        if (GameManager.Instance.is_paused || GameManager.Instance.player_busy || !GameManager.Instance.hasFlashlight)
             return;
 
         Process_Input();
@@ -41,7 +41,7 @@ public class FlashlightMouse : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (GameManager.Instance.is_paused || GameManager.Instance.player_busy)
+        if (GameManager.Instance.is_paused || GameManager.Instance.player_busy || !GameManager.Instance.hasFlashlight)
             return;
 
         PositionLightAtMouse();

@@ -2,17 +2,24 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Rendering.Universal;
 using System.Runtime.CompilerServices;
+using UnityEditor.Animations;
 
 public class player_controller : MonoBehaviour
 {
 
-    [Header("Ref")]    
+    [Header("General")]    
     [SerializeField] Rigidbody2D rb;
+    Camera cam;
+
+    [Header("Audio")]
+    private AudioSource footstepSFX;
+
+    [Header("Animation")]
+    [SerializeField] AnimatorController withoutFlashlihgtAC;
+    [SerializeField] AnimatorController withFlashlightAC;
     [SerializeField] Animator animator;
     [SerializeField] SpriteRenderer sprite;
-    [SerializeField] GameObject flashlight;
-    private AudioSource footstepSFX;
-    Camera cam;
+
 
     [Header("Movement")]
     [SerializeField] float walkSpeed;
@@ -22,6 +29,7 @@ public class player_controller : MonoBehaviour
     private Vector2 mouseDirection;
 
     [Header("Light Mechanics")]
+    [SerializeField] GameObject flashlight;
     [SerializeField] private bool illuminated = false;
 
 
@@ -42,7 +50,21 @@ public class player_controller : MonoBehaviour
             TransitionManager.Instance.has_transitioned = false;
         }
 
+        GameManager.Instance.player = this;
+        ChangeFlashlightAnim();
         GetGlobalLight();
+    }
+    
+    public void ChangeFlashlightAnim()
+    {
+        if(GameManager.Instance.hasFlashlight)
+        {
+            animator.runtimeAnimatorController = withFlashlightAC;
+        }
+        else
+        {
+            animator.runtimeAnimatorController = withoutFlashlihgtAC;
+        }
     }
 
     private void GetGlobalLight()
