@@ -390,7 +390,7 @@ MonoBehaviour:
   withFlashlightAC: {fileID: 9100000, guid: 832615fcea5ff7f42aa66f32c76e416a, type: 2}
   animator: {fileID: 5316116117085644224}
   sprite: {fileID: 3690476716868882682}
-  walkSpeed: 100
+  walkSpeed: 120
   speedMultiplierWhenBackwards: 1
   flashlight: {fileID: 3085235595701090019}
   illuminated: 0

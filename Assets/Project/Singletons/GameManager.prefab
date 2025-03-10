@@ -47,16 +47,18 @@ MonoBehaviour:
   hud: {fileID: 0}
   is_paused: 0
   player_busy: 0
+  player: {fileID: 0}
   inventory: []
-  batteryDrain: 5
+  batteryDrain: 3
   flashlightRange: 4
   battery: 0
   maxBattery: 100
   flashlightOn: 0
-  hasBattery: 0
+  hasFlashlight: 0
   maxSanityLevel: 100
-  sanityDrain: 10
+  sanityDrain: 15
   currentSanityLevel: 0
   globalLightTreshold: 0.25
   currentGlobalLight: 0
+  sanityRecoveryFactor: 2
   gameObjective: 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class DialogueHekper : MonoBehaviour
@@ -45,7 +46,7 @@ public class DialogueHekper : MonoBehaviour
 
     public void SelfDestroy()
     {
-        Destroy(gameObject);
+        gameObject.GetComponent<Npc>().DisableNPC(true);
     }
 
     public void AddToInventory(string item)

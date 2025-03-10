@@ -796,7 +796,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: 674.9999}
+  m_AnchoredPosition: {x: 100, y: -46.519104}
   m_SizeDelta: {x: 200, y: 93.0382}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3079741472949985789
@@ -1363,8 +1363,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e28af8c02c0af74d967492497a20439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  batteryMeter: {fileID: 0}
-  batteryFiller: {fileID: 0}
+  batteryMeter: {fileID: 3079741472949985789}
+  batteryFiller: {fileID: 1860867165766576076}
   fullBatteryColor: {r: 0, g: 0.5764706, b: 0.008814661, a: 1}
   lowBatteryColor: {r: 0.5754717, g: 0.0027144956, b: 0.0027144956, a: 1}
   sanityLevel: {fileID: 55064457487230457}

@@ -25,7 +25,7 @@ public class Npc : MonoBehaviour
         can_interact = triggerInstantly;
         if (conversationList.Length < 1)
         {
-            Debug.LogError("NPC has no conversation");
+            Debug.LogError($"{gameObject.name} NPC has no conversation");
             disabled = true;
         }
             
@@ -37,6 +37,7 @@ public class Npc : MonoBehaviour
     private void Start()
     {
         LoadNPCState();
+        DisableNPC(disabled);
     }
 
     private void LoadNPCState()
@@ -151,6 +152,7 @@ public class Npc : MonoBehaviour
     public void DisableNPC(bool newState)
     {
         disabled = newState;
+        gameObject.SetActive(!disabled);
     }
 
 }

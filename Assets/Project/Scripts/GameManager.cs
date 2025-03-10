@@ -159,7 +159,7 @@ public class GameManager : MonoBehaviour
         inventory.Add(name.ToLower().Trim());
         hud.UpdateInventory();
         
-        if (name == "lantera")
+        if (name == "lanterna")
         {
             PickupFlashlight();
         }
