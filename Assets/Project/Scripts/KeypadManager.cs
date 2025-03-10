@@ -135,7 +135,7 @@ public class KeypadManager : MonoBehaviour
     {
         door.GetComponent<BoxCollider2D>().enabled = false;
         door.GetComponent<Animator>().Play("Open");
-        interaction.SetActive(false);
+        interaction.GetComponent<Npc>().disabled = true;
     }
 
     private void GoodPassword()

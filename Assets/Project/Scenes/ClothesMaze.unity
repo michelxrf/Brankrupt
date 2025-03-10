@@ -29688,14 +29688,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4588260289022241322, guid: 837b1e54f28282745b9ea136b1074440, type: 3}
-      propertyPath: withFlashlightAC
-      value: 
-      objectReference: {fileID: 9100000, guid: 832615fcea5ff7f42aa66f32c76e416a, type: 2}
-    - target: {fileID: 4588260289022241322, guid: 837b1e54f28282745b9ea136b1074440, type: 3}
-      propertyPath: withoutFlashlihgtAC
-      value: 
-      objectReference: {fileID: 9100000, guid: a7feb0a6c96f61c4192a8cbb79cbbeb5, type: 2}
     - target: {fileID: 4889479881068025331, guid: 837b1e54f28282745b9ea136b1074440, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.74
@@ -29736,10 +29728,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5316116117085644224, guid: 837b1e54f28282745b9ea136b1074440, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: a7feb0a6c96f61c4192a8cbb79cbbeb5, type: 2}
     - target: {fileID: 6923213202580898572, guid: 837b1e54f28282745b9ea136b1074440, type: 3}
       propertyPath: m_Name
       value: Player

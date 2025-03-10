@@ -130,6 +130,7 @@ public class GameManager : MonoBehaviour
         allItemsInGame.Add("agenda", "InventoryIcons/agenda");
         allItemsInGame.Add("documentos", "InventoryIcons/documento");
         allItemsInGame.Add("chave", "InventoryIcons/chave_vermelha");
+        allItemsInGame.Add("lanterna", "InventoryIcons/lanterna");
     }
 
     public void Pause()
@@ -157,6 +158,11 @@ public class GameManager : MonoBehaviour
 
         inventory.Add(name.ToLower().Trim());
         hud.UpdateInventory();
+        
+        if (name == "lantera")
+        {
+            PickupFlashlight();
+        }
     }
 
     public void Remove_Item_From_Inventory(string name)

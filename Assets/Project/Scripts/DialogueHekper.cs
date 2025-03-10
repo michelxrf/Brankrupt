@@ -23,6 +23,11 @@ public class DialogueHekper : MonoBehaviour
 
     }
 
+    public void FlushInventory()
+    {
+        GameManager.Instance.Clear_Inventory();
+    }
+
     public void RechargeBattery()
     {
         GameManager.Instance.RechargeBattery();
@@ -36,6 +41,21 @@ public class DialogueHekper : MonoBehaviour
     public void DeactivateNPC(int id)
     {
         GameManager.Instance.UpdateNPC(id, false, GameManager.Instance.npcStates[id].npcName, GameManager.Instance.npcStates[id].dialog_index);
+    }
+
+    public void SelfDestroy()
+    {
+        Destroy(gameObject);
+    }
+
+    public void AddToInventory(string item)
+    {
+        GameManager.Instance.Add_Item_To_Inventory(item);
+    }
+
+    public void RemoveFromInventory(string item)
+    {
+        GameManager.Instance.Remove_Item_From_Inventory(item);
     }
 
     public void ActivateNPC(int id)

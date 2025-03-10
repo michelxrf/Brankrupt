@@ -40,11 +40,18 @@ public class hud_manager : MonoBehaviour
         sanityLevel.maxValue = GameManager.Instance.maxSanityLevel;
         UpdateInventory();
         UpdateObjective();
+
+        if (GameManager.Instance.hasFlashlight)
+        {
+            PickupFlashlight();
+        }
+
     }
 
     public void PickupFlashlight()
     {
         batteryMeter.gameObject.SetActive(true);
+        UpdateBattery(GameManager.Instance.battery);
     }
 
     public void UpdateBattery(float value)

@@ -386,11 +386,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1630761639126465336}
+  withoutFlashlihgtAC: {fileID: 9100000, guid: a7feb0a6c96f61c4192a8cbb79cbbeb5, type: 2}
+  withFlashlightAC: {fileID: 9100000, guid: 832615fcea5ff7f42aa66f32c76e416a, type: 2}
   animator: {fileID: 5316116117085644224}
   sprite: {fileID: 3690476716868882682}
-  flashlight: {fileID: 3085235595701090019}
   walkSpeed: 100
   speedMultiplierWhenBackwards: 1
+  flashlight: {fileID: 3085235595701090019}
   illuminated: 0
 --- !u!81 &7348311584746365228
 AudioListener:
