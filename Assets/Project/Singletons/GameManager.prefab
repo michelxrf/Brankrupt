@@ -56,9 +56,9 @@ MonoBehaviour:
   flashlightOn: 0
   hasFlashlight: 0
   maxSanityLevel: 100
-  sanityDrain: 15
+  sanityDrain: 25
   currentSanityLevel: 0
   globalLightTreshold: 0.25
   currentGlobalLight: 0
-  sanityRecoveryFactor: 2
+  sanityRecoveryFactor: 0.75
   gameObjective: 
