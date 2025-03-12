@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Rendering.Universal;
-using System.Runtime.CompilerServices;
-using UnityEditor.Animations;
 
 public class player_controller : MonoBehaviour
 {
@@ -15,8 +13,8 @@ public class player_controller : MonoBehaviour
     private AudioSource footstepSFX;
 
     [Header("Animation")]
-    [SerializeField] AnimatorController withoutFlashlihgtAC;
-    [SerializeField] AnimatorController withFlashlightAC;
+    [SerializeField] RuntimeAnimatorController withoutFlashlihgtAC;
+    [SerializeField] RuntimeAnimatorController withFlashlightAC;
     [SerializeField] Animator animator;
     [SerializeField] SpriteRenderer sprite;
 

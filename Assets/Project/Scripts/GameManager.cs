@@ -38,8 +38,9 @@ public class GameManager : MonoBehaviour
     [Header("Guide")]
     [SerializeField] public string gameObjective = "What should I do?";
 
-    [Header("NPC States")]
+    [Header("State Holders")]
     [SerializeField] public Dictionary<int, NPCStateHolder> npcStates = new Dictionary<int, NPCStateHolder>();
+    [SerializeField] public Dictionary<int, bool> transitionStates = new Dictionary<int, bool>();
 
     private void Awake()
     {
@@ -219,7 +220,7 @@ public class GameManager : MonoBehaviour
     {
         Destroy(TransitionManager.Instance.gameObject);
         Destroy(AudioManager.Instance.gameObject);
-        Destroy(gameObject);
         SceneManager.LoadScene(0);
+        Destroy(gameObject);
     }
 }

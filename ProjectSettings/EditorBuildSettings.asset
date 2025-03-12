@@ -62,4 +62,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Project/Scenes/StoreEntrance2.unity
     guid: bfbb0806d76297b488ab24ac2d4ff955
+  - enabled: 1
+    path: Assets/Project/Scenes/StoreEntrance3.unity
+    guid: 91a0e1c280177cb4dbd487ec0baca455
   m_configObjects: {}

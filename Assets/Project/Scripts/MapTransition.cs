@@ -2,11 +2,14 @@ using UnityEngine;
 
 public class MapTransition : MonoBehaviour
 {
-    [SerializeField] int mapIndex;
-    [SerializeField] Vector2 mapTransitionPosition;
+    [SerializeField] int id;
+    [SerializeField] bool isEnabled = true;
     [SerializeField] bool instantTransition = true;
     [SerializeField] bool isDoor = false;
     [SerializeField] GameObject interaction_tip;
+    [Header("Destination")]
+    [SerializeField] int mapIndex;
+    [SerializeField] Vector2 mapTransitionPosition;
 
     private bool can_interact = false;
 
@@ -17,7 +20,23 @@ public class MapTransition : MonoBehaviour
 
     void Start()
     {
-        
+        LoadTransitionState();
+        EnableTransition(isEnabled);
+    }
+
+    private void LoadTransitionState()
+    {
+        if (GameManager.Instance.transitionStates.ContainsKey(id))
+        {
+            EnableTransition(GameManager.Instance.transitionStates[id]);
+            Debug.Log($"Transition {gameObject.name} loaded");
+        }
+    }
+
+    private void SaveTransitionState()
+    {
+        GameManager.Instance.transitionStates[id] = isEnabled;
+        Debug.Log($"Transition {gameObject.name} saved");
     }
 
     // Update is called once per frame
@@ -26,8 +45,44 @@ public class MapTransition : MonoBehaviour
         Interaction();
     }
 
+    public void EnableTransition(bool newState)
+    {
+        isEnabled = newState;
+        gameObject.SetActive(isEnabled);
+
+        //if (isEnabled)
+            //ForceCollisionCheck();
+    }
+
+    private void ForceCollisionCheck()
+    {
+        Collider2D[] results = new Collider2D[0];
+
+        ContactFilter2D filter = new ContactFilter2D();
+        filter.SetLayerMask(LayerMask.GetMask("Player"));
+
+        int collisionsCount = GetComponent<Collider2D>().OverlapCollider(filter, results);
+        Debug.Log(collisionsCount);
+
+        if (collisionsCount > 0)
+        {
+            if (instantTransition)
+            {
+                TransitionManager.Instance.TransitionTo(mapIndex, mapTransitionPosition);
+            }
+            else
+            {
+                interaction_tip.SetActive(true);
+                can_interact = true;
+            }
+        }
+    }
+
     private void Interaction()
     {
+        if (!isEnabled)
+            return;
+
         if (GameManager.Instance.player_busy || GameManager.Instance.is_paused)
             return;
 
@@ -42,6 +97,9 @@ public class MapTransition : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!isEnabled)
+            return;
+
         if (collision.gameObject.CompareTag("Player"))
         {
             if (instantTransition)
@@ -65,5 +123,10 @@ public class MapTransition : MonoBehaviour
             interaction_tip.SetActive(false);
             can_interact = false;
         }
+    }
+
+    private void OnDestroy()
+    {
+        SaveTransitionState();
     }
 }

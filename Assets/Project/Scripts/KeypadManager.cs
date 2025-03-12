@@ -148,6 +148,8 @@ public class KeypadManager : MonoBehaviour
         currentPassword = "----";
         UpdateDisplay();
 
+        GameManager.Instance.ChangeObjective("Conserte o disjuntor e acesse as cameras.");
+
         StartCoroutine(AutoHideAfterUnlock());
     }
 

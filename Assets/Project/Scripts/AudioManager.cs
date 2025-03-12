@@ -50,4 +50,10 @@ public class AudioManager : MonoBehaviour
         
     }
 
+    private void OnDestroy()
+    {
+        ambiance.Stop();
+        lowSanity.Stop();
+    }
+
 }
