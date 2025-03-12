@@ -54,30 +54,6 @@ public class MapTransition : MonoBehaviour
             //ForceCollisionCheck();
     }
 
-    private void ForceCollisionCheck()
-    {
-        Collider2D[] results = new Collider2D[0];
-
-        ContactFilter2D filter = new ContactFilter2D();
-        filter.SetLayerMask(LayerMask.GetMask("Player"));
-
-        int collisionsCount = GetComponent<Collider2D>().OverlapCollider(filter, results);
-        Debug.Log(collisionsCount);
-
-        if (collisionsCount > 0)
-        {
-            if (instantTransition)
-            {
-                TransitionManager.Instance.TransitionTo(mapIndex, mapTransitionPosition);
-            }
-            else
-            {
-                interaction_tip.SetActive(true);
-                can_interact = true;
-            }
-        }
-    }
-
     private void Interaction()
     {
         if (!isEnabled)
