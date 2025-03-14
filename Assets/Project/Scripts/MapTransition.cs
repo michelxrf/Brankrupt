@@ -56,10 +56,7 @@ public class MapTransition : MonoBehaviour
 
     private void Interaction()
     {
-        if (!isEnabled)
-            return;
-
-        if (GameManager.Instance.player_busy || GameManager.Instance.is_paused)
+        if (!isEnabled || GameManager.Instance.player_busy || GameManager.Instance.is_paused)
             return;
 
         if (Input.GetKeyDown(KeyCode.E) && can_interact)

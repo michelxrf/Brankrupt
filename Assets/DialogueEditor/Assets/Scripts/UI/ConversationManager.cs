@@ -369,6 +369,7 @@ namespace DialogueEditor
         {
             m_stateTime += Time.deltaTime;
             float t = m_stateTime / TRANSITION_TIME;
+            Debug.Log($"ON t = {t}");
 
             if (t > 1)
             {
@@ -399,6 +400,7 @@ namespace DialogueEditor
         private void TransitionOptionsOff_Update()
         {
             m_stateTime += Time.deltaTime;
+            //float t = Mathf.Max(m_stateTime / TRANSITION_TIME, 0.1f);
             float t = m_stateTime / TRANSITION_TIME;
 
             if (t > 1)
@@ -434,6 +436,7 @@ namespace DialogueEditor
                 m_uiOptions[i].SetAlpha(1 - t);
 
             SetColorAlpha(DialogueText, 1 - t);
+            Debug.Log($"OFF t = {t}");
         }
 
         private void TransitioningDialogueBoxOff_Update()
@@ -713,6 +716,7 @@ namespace DialogueEditor
                 m_uiOptions[i].SetAlpha(0);
                 m_uiOptions[i].gameObject.SetActive(false);
             }
+            Debug.Log("End");
         }
 
         private void ClearOptions()

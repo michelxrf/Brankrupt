@@ -22,6 +22,8 @@ public class Npc : MonoBehaviour
     private bool can_interact = false;
     private void Awake()
     {
+        Debug.Log(gameObject.name + " Awake");
+
         can_interact = triggerInstantly;
         if (conversationList.Length < 1)
         {
@@ -36,6 +38,8 @@ public class Npc : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log(gameObject.name + " Start");
+
         LoadNPCState();
         DisableNPC(disabled);
     }
@@ -58,6 +62,8 @@ public class Npc : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(gameObject.name + " Trigger");
+
         if (disabled)
             { return; }
 
@@ -67,7 +73,6 @@ public class Npc : MonoBehaviour
             if (triggerInstantly)
             {
                 Interaction();
-                can_interact = false;
             }
             else
             {
@@ -101,11 +106,12 @@ public class Npc : MonoBehaviour
 
     private void Interaction()
     {
-        if (GameManager.Instance.player_busy || GameManager.Instance.is_paused || disabled)
+        if (GameManager.Instance.player_busy || GameManager.Instance.is_paused || disabled || !playerInRange)
             return;
 
-        if((Input.GetKeyDown(KeyCode.E) && can_interact) || triggerInstantly && playerInRange && can_interact)
+        if((Input.GetKeyDown(KeyCode.E) && can_interact) || (triggerInstantly && playerInRange && can_interact))
         {
+            can_interact = false;
             ConversationManager.Instance.StartConversation(conversationList[currentConversationIndex], this);
             loadInventoryIntoConverstation();
             GameManager.Instance.player_busy = true;
