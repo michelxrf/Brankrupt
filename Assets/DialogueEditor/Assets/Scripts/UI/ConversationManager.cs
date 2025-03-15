@@ -371,14 +371,14 @@ namespace DialogueEditor
             float t = m_stateTime / TRANSITION_TIME;
             Debug.Log($"ON t = {t}");
 
+            for (int i = 0; i < m_uiOptions.Count; i++)
+                m_uiOptions[i].SetAlpha(t);
+
             if (t > 1)
             {
                 SetState(eState.Idle);
                 return;
             }
-
-            for (int i = 0; i < m_uiOptions.Count; i++)
-                m_uiOptions[i].SetAlpha(t);
         }
 
         private void Idle_Update()
