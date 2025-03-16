@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public float maxSanityLevel = 100f;
     [SerializeField] public float sanityDrain = 10f;
     [SerializeField] public float sanityMultiplier = 1f;
-    [HideInInspector] public float currentSanityLevel;
+    [SerializeField] public float currentSanityLevel;
     [SerializeField] public float globalLightTreshold = .25f;
     [SerializeField] public float currentGlobalLight = 0f;
     [SerializeField] public float sanityRecoveryFactor = 1.5f;

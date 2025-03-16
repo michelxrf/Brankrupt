@@ -48,17 +48,20 @@ MonoBehaviour:
   is_paused: 0
   player_busy: 0
   player: {fileID: 0}
-  inventory: []
-  batteryDrain: 3
+  inventory:
+  - lanterna
+  batteryDrain: 5
   flashlightRange: 4
   battery: 0
   maxBattery: 100
   flashlightOn: 0
-  hasFlashlight: 0
+  hasFlashlight: 1
   maxSanityLevel: 100
   sanityDrain: 25
+  sanityMultiplier: 1
   currentSanityLevel: 0
   globalLightTreshold: 0.25
   currentGlobalLight: 0
   sanityRecoveryFactor: 0.75
+  closeToMonster: 0
   gameObjective: 
