@@ -164,9 +164,9 @@ public class player_controller : MonoBehaviour
             return;
 
 
-        if (!illuminated && !GameManager.Instance.flashlightOn)
+        if (!illuminated && !GameManager.Instance.flashlightOn && !GameManager.Instance.closeToMonster)
         {
-            GameManager.Instance.currentSanityLevel = Mathf.Clamp(GameManager.Instance.currentSanityLevel -= Time.deltaTime * GameManager.Instance.sanityDrain, 0f, GameManager.Instance.maxSanityLevel);
+            GameManager.Instance.currentSanityLevel = Mathf.Clamp(GameManager.Instance.currentSanityLevel -= Time.deltaTime * GameManager.Instance.sanityDrain * GameManager.Instance.sanityMultiplier, 0f, GameManager.Instance.maxSanityLevel);
             if (GameManager.Instance.currentSanityLevel <= 0)
             {
                 GameManager.Instance.GameOver();

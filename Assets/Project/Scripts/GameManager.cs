@@ -30,10 +30,12 @@ public class GameManager : MonoBehaviour
     [Header("Sanity")]
     [SerializeField] public float maxSanityLevel = 100f;
     [SerializeField] public float sanityDrain = 10f;
+    [SerializeField] public float sanityMultiplier = 1f;
     [HideInInspector] public float currentSanityLevel;
     [SerializeField] public float globalLightTreshold = .25f;
     [SerializeField] public float currentGlobalLight = 0f;
     [SerializeField] public float sanityRecoveryFactor = 1.5f;
+    [SerializeField] public bool closeToMonster = false;
 
     [Header("Guide")]
     [SerializeField] public string gameObjective = "What should I do?";
@@ -132,6 +134,10 @@ public class GameManager : MonoBehaviour
         allItemsInGame.Add("documentos", "InventoryIcons/documento");
         allItemsInGame.Add("chave", "InventoryIcons/chave_vermelha");
         allItemsInGame.Add("lanterna", "InventoryIcons/lanterna");
+        allItemsInGame.Add("calças", "InventoryIcons/calça");
+        allItemsInGame.Add("chapéu", "InventoryIcons/chapeu");
+        allItemsInGame.Add("sapatos", "InventoryIcons/sapato");
+        allItemsInGame.Add("casaco", "InventoryIcons/casaco");
     }
 
     public void Pause()

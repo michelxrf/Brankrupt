@@ -111,6 +111,11 @@ public class Dummy : MonoBehaviour
         }
     }
 
+    public void IncreaseSpeedPercentage(float percentage)
+    {
+        speed = percentage * speed;
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         beingIlluminatedByCount--;
