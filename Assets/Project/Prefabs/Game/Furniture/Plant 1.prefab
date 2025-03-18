@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3452643844457752281}
   - component: {fileID: 6051163853313232563}
   - component: {fileID: 3456149563989323710}
+  - component: {fileID: 8256631242186958572}
   m_Layer: 10
   m_Name: Plant 1
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4634941130980207680}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.3810234, y: -6.687482, z: -1.9595073}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -143,3 +144,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c6465721a9277c44a920ca3d55768c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!208 &8256631242186958572
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4634941130980207680}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.38, y: 0.385, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.43100002, z: 0}
+  m_TimeToStationary: 0.5
