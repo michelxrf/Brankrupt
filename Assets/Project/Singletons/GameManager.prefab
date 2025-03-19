@@ -48,8 +48,7 @@ MonoBehaviour:
   is_paused: 0
   player_busy: 0
   player: {fileID: 0}
-  inventory:
-  - lanterna
+  inventory: []
   batteryDrain: 5
   flashlightRange: 4
   battery: 0
