@@ -22,8 +22,6 @@ public class Npc : MonoBehaviour
     private bool can_interact = false;
     private void Awake()
     {
-        Debug.Log(gameObject.name + " Awake");
-
         can_interact = triggerInstantly;
         if (conversationList.Length < 1)
         {
@@ -38,8 +36,6 @@ public class Npc : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(gameObject.name + " Start");
-
         LoadNPCState();
         DisableNPC(disabled);
     }
@@ -51,19 +47,15 @@ public class Npc : MonoBehaviour
             id = npc.id;
             currentConversationIndex = npc.dialog_index;
             disabled = !npc.active;
-            Debug.Log($"{npc.npcName} loaded");
         }
         else
         {
             GameManager.Instance.SaveNPC(id, !disabled, name, currentConversationIndex);
-            Debug.Log($"{name} saved");
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(gameObject.name + " Trigger");
-
         if (disabled)
             { return; }
 

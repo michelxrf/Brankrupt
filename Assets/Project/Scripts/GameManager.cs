@@ -134,10 +134,11 @@ public class GameManager : MonoBehaviour
         allItemsInGame.Add("documentos", "InventoryIcons/documento");
         allItemsInGame.Add("chave", "InventoryIcons/chave_vermelha");
         allItemsInGame.Add("lanterna", "InventoryIcons/lanterna");
-        allItemsInGame.Add("calças", "InventoryIcons/calça");
-        allItemsInGame.Add("chapéu", "InventoryIcons/chapeu");
-        allItemsInGame.Add("sapatos", "InventoryIcons/sapato");
-        allItemsInGame.Add("casaco", "InventoryIcons/casaco");
+        allItemsInGame.Add("calças", "InventoryIcons/Calca");
+        allItemsInGame.Add("chapéu", "InventoryIcons/Chapeu");
+        allItemsInGame.Add("sapatos", "InventoryIcons/Botas");
+        allItemsInGame.Add("casaco", "InventoryIcons/Blusa");
+        allItemsInGame.Add("cristal", "InventoryIcons/Cristal");
     }
 
     public void Pause()
