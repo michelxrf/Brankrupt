@@ -47,6 +47,7 @@ public class Npc : MonoBehaviour
             id = npc.id;
             currentConversationIndex = npc.dialog_index;
             disabled = !npc.active;
+            Debug.Log($"{name} loaded");
         }
         else
         {

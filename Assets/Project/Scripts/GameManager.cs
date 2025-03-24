@@ -67,10 +67,12 @@ public class GameManager : MonoBehaviour
         if (npcStates.ContainsKey(id))
         {
             UpdateNPC(id, isActive, npcName, dialogIndex);
+            Debug.Log($"{npcName} updated, index {dialogIndex}");
         }
         else
         {
             RegisterNPC(id, isActive, npcName, dialogIndex);
+            Debug.Log($"{npcName} registered, index {dialogIndex}");
         }
     }
     public void RegisterNPC(int id, bool isActive, string npcName, int dialogIndex)
@@ -137,7 +139,7 @@ public class GameManager : MonoBehaviour
         allItemsInGame.Add("calças", "InventoryIcons/Calca");
         allItemsInGame.Add("chapéu", "InventoryIcons/Chapeu");
         allItemsInGame.Add("sapatos", "InventoryIcons/Botas");
-        allItemsInGame.Add("casaco", "InventoryIcons/Blusa");
+        allItemsInGame.Add("casaco", "InventoryIcons/Casaco");
         allItemsInGame.Add("cristal", "InventoryIcons/Cristal");
     }
 

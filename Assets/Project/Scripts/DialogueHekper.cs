@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DialogueHekper : MonoBehaviour
 { 
@@ -54,6 +55,12 @@ public class DialogueHekper : MonoBehaviour
     public void RemoveFromInventory(string item)
     {
         GameManager.Instance.Remove_Item_From_Inventory(item);
+    }
+
+    public void ToGameEndScree()
+    {
+        AudioManager.Instance.GameOver();
+        SceneManager.LoadScene(17);
     }
 
     public void ActivateNPC(int id)
