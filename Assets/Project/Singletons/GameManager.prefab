@@ -54,7 +54,7 @@ MonoBehaviour:
   battery: 0
   maxBattery: 100
   flashlightOn: 0
-  hasFlashlight: 1
+  hasFlashlight: 0
   maxSanityLevel: 100
   sanityDrain: 25
   sanityMultiplier: 1
