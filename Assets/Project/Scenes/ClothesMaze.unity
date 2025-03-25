@@ -22690,18 +22690,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6201111041680547973, guid: e3e706630b1efd446ab3b4fa49a5e061, type: 3}
-      propertyPath: hasFlashlight
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6201111041680547973, guid: e3e706630b1efd446ab3b4fa49a5e061, type: 3}
-      propertyPath: inventory.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6201111041680547973, guid: e3e706630b1efd446ab3b4fa49a5e061, type: 3}
-      propertyPath: inventory.Array.data[0]
-      value: lanterna
-      objectReference: {fileID: 0}
     - target: {fileID: 8745754172627113195, guid: e3e706630b1efd446ab3b4fa49a5e061, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -22798,6 +22786,14 @@ PrefabInstance:
     - target: {fileID: 3452410148606275028, guid: bef254b058572f84498f006c44e2dd6b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3452410148606275028, guid: bef254b058572f84498f006c44e2dd6b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.0000038146973
+      objectReference: {fileID: 0}
+    - target: {fileID: 3452410148606275028, guid: bef254b058572f84498f006c44e2dd6b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.000061035156
       objectReference: {fileID: 0}
     - target: {fileID: 3498068423058668553, guid: bef254b058572f84498f006c44e2dd6b, type: 3}
       propertyPath: m_Pivot.x
