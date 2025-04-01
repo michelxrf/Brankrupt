@@ -8079,6 +8079,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5028134781106976271, guid: bef254b058572f84498f006c44e2dd6b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5028134781106976271, guid: bef254b058572f84498f006c44e2dd6b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Unpause
+      objectReference: {fileID: 0}
     - target: {fileID: 6341405585169596938, guid: bef254b058572f84498f006c44e2dd6b, type: 3}
       propertyPath: m_Name
       value: HUD

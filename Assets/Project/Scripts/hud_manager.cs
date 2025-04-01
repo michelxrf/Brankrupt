@@ -25,10 +25,14 @@ public class hud_manager : MonoBehaviour
     [SerializeField] AudioSource gameoverSfx;
     [SerializeField] GameObject gameoverScreen;
 
+    [Header("Quit")]
+    [SerializeField] GameObject quitPanel;
+
     private void Awake()
     {
         gameoverScreen.SetActive(false);
         batteryMeter.gameObject.SetActive(false);
+        quitPanel.SetActive(false);
     }
 
     private void Start()
@@ -46,6 +50,17 @@ public class hud_manager : MonoBehaviour
             PickupFlashlight();
         }
 
+    }
+
+    public void Unpause()
+    {
+        GameManager.Instance.Unpause();
+        TooglePauseScreen(false);
+    }
+
+    public void TooglePauseScreen(bool state)
+    {
+        quitPanel.SetActive(state);
     }
 
     public void PickupFlashlight()

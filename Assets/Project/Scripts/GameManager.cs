@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using DialogueEditor;
 using Unity.Burst.Intrinsics;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -112,7 +113,18 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        DebugBackToMenu();
+        VerifyInput();
+    }
+
+    private void VerifyInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && !player_busy)
+        {
+            TooglePause();
+            hud.TooglePauseScreen(is_paused);
+        }
+
+        Debug.Log($"paused: {is_paused}, busy: {player_busy}");
     }
 
     public void ChangeObjective(string objective)
@@ -141,6 +153,11 @@ public class GameManager : MonoBehaviour
         allItemsInGame.Add("sapatos", "InventoryIcons/Botas");
         allItemsInGame.Add("casaco", "InventoryIcons/Casaco");
         allItemsInGame.Add("cristal", "InventoryIcons/Cristal");
+    }
+
+    public void TooglePause()
+    {
+        is_paused = !is_paused;
     }
 
     public void Pause()

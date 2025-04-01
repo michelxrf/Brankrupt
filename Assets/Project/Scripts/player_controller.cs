@@ -198,25 +198,10 @@ public class player_controller : MonoBehaviour
     }
     private void ProcessInput()
     {
-        if(GameManager.Instance.player_busy)
+        if(GameManager.Instance.player_busy || GameManager.Instance.is_paused)
         {
             rb.velocity = Vector3.zero;
             return;
-        }
-            
-
-        if (GameManager.Instance.is_paused)
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                GameManager.Instance.Unpause();
-            }
-            return;
-        }
-        
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            GameManager.Instance.Pause();
         }
 
         if (Input.GetKeyDown(KeyCode.I))
