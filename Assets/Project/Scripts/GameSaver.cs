@@ -7,7 +7,7 @@ public class GameSaver : MonoBehaviour
 {
     public static GameSaver Instance { get; private set; }
     private string savePath;
-    public int lastPlayedChapter;
+    public int lastPlayedChapter = -1;
 
     private void Awake()
     {   
@@ -20,7 +20,8 @@ public class GameSaver : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(this);
             savePath = Path.Combine(Application.persistentDataPath, "savedata.bin");
-            lastPlayedChapter = 0;
+
+            LoadGame();
         }
     }
 
