@@ -67,4 +67,14 @@ public class DialogueHekper : MonoBehaviour
     {
         GameManager.Instance.UpdateNPC(id, true, GameManager.Instance.npcStates[id].npcName, GameManager.Instance.npcStates[id].dialog_index);
     }
+
+    public void ActivateGameObject(GameObject go)
+    {
+        go.SetActive(true);
+    }
+
+    public void PlayDoorSfx()
+    {
+        AudioManager.Instance.PlayDoor();
+    }
 }
