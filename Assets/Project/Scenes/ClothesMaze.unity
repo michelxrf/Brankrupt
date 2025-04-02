@@ -18178,9 +18178,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2058499317138871879, guid: c14ecefd91fab134ea0c13cd183c6af7, type: 3}
+      propertyPath: MaxDistance
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2298442189590164988, guid: c14ecefd91fab134ea0c13cd183c6af7, type: 3}
       propertyPath: m_Name
       value: Monster
+      objectReference: {fileID: 0}
+    - target: {fileID: 6628695300935675855, guid: c14ecefd91fab134ea0c13cd183c6af7, type: 3}
+      propertyPath: m_Speed
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6628695300935675855, guid: c14ecefd91fab134ea0c13cd183c6af7, type: 3}
       propertyPath: m_Acceleration

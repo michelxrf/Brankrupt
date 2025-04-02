@@ -49,7 +49,7 @@ MonoBehaviour:
   player_busy: 0
   player: {fileID: 0}
   inventory: []
-  batteryDrain: 4
+  batteryDrain: 2
   flashlightRange: 4
   battery: 0
   maxBattery: 100
