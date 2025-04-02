@@ -390,16 +390,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 4
-  json: "{\"Options\":[],\"Parameters\":[],\"SpeechNodes\":[{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":1}],\"EditorInfo\":{\"isRoot\":true,\"xPos\":316,\"yPos\":75},\"ID\":0,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Alfred
-    n\xE3o tomou a melhor decis\xE3o, no momento em que ele escolheu abrir m\xE3o
-    do cristal a sua alma foi consumida pela escurid\xE3o enquanto ele perdia a sanidade
-    lentamente.\",\"parentUIDs\":[],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Narrador\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":2}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":318,\"yPos\":215},\"ID\":1,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"J\xE1
-    era poss\xEDvel ouvir os gritos de todos aquele que uma vez foram enganados pelas
-    facilidades que seus pactos proporcionaram em vida.\",\"parentUIDs\":[0],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Narrador\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":3}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":316,\"yPos\":345},\"ID\":2,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Alfred,
-    ing\xEAnuo e ganancioso em vida. Se arrependeu tarde demais por n\xE3o dar aten\xE7\xE3o
-    a sua esposa. \",\"parentUIDs\":[1],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Narrador\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":311,\"yPos\":485},\"ID\":3,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Ela
-    havia o informado que um dia, ele perderia tudo de mais precioso. E aconteceu,
-    ele perdeu a vida.\",\"parentUIDs\":[2],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Alfred\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0}]}"
+  json: "{\"Options\":[],\"Parameters\":[],\"SpeechNodes\":[{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":1}],\"EditorInfo\":{\"isRoot\":true,\"xPos\":119,\"yPos\":43},\"ID\":0,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Alfred
+    fez sua escolha, e escolheu errado. No instante em que abriu m\xE3o do cristal,
+    a Escurid\xE3o o devorou, arrancando-lhe a sanidade em um sofrimento lento e
+    implac\xE1vel.\",\"parentUIDs\":[],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Narrador\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":2}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":121,\"yPos\":183},\"ID\":1,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Sussurros
+    se tornaram gritos. Eram os lamentos daqueles que, como ele, foram seduzidos
+    por promessas vazias e condenados ao tormento eterno. Sombras retorcidas o puxavam
+    para o abismo, enquanto arrependimentos tardios queimavam sua mente.\",\"parentUIDs\":[0],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Narrador\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":3}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":119,\"yPos\":313},\"ID\":2,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Sombras
+    retorcidas o puxavam para o abismo, enquanto arrependimentos tardios queimavam
+    sua mente.\",\"parentUIDs\":[1],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Narrador\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":114,\"yPos\":453},\"ID\":3,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Sua
+    esposa avisara. Ele perderia tudo o que mais importava. E perdeu. N\xE3o apenas
+    a vida, mas tamb\xE9m a eternidade.\",\"parentUIDs\":[2],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Alfred\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0}]}"
   saveVersion: 110
   DefaultName: 
   DefaultSprite: {fileID: 0}
@@ -444,15 +445,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 4
-  json: "{\"Options\":[],\"Parameters\":[],\"SpeechNodes\":[{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":1}],\"EditorInfo\":{\"isRoot\":true,\"xPos\":275,\"yPos\":113},\"ID\":0,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Do
-    ch\xE3o surgiu correntes, e o auditor foi puxado lentamente para o ch\xE3o. Pois
-    o seu trabalho fracassou.\",\"parentUIDs\":[],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Narrador\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":2}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":280,\"yPos\":248},\"ID\":1,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"J\xE1
-    que n\xE3o obteve exito na sua miss\xE3o, Momom, seu chefe, o condenou a duas
-    decadas nas profundezas do inferno.\",\"parentUIDs\":[0],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Narrador\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":3}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":277,\"yPos\":385},\"ID\":2,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Alfred
+  json: "{\"Options\":[],\"Parameters\":[],\"SpeechNodes\":[{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":1}],\"EditorInfo\":{\"isRoot\":true,\"xPos\":163,\"yPos\":44},\"ID\":0,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Correntes
+    emergiram do ch\xE3o, enla\xE7ando o Auditor enquanto ele se debatia. Seu fracasso
+    tinha um pre\xE7o. Momom observava impass\xEDvel enquanto ele era arrastado para
+    as profundezas do inferno.\",\"parentUIDs\":[],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Narrador\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":2}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":169,\"yPos\":181},\"ID\":1,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Alfred
+    apenas assistiu. A culpa se dissipava, substitu\xEDda por algo que h\xE1 muito
+    esquecera: esperan\xE7a. Sua vida ainda podia ser reconstru\xEDda.\",\"parentUIDs\":[0],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Narrador\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":3}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":166,\"yPos\":316},\"ID\":2,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Alfred
     foi capaz de retornar para sua realidade, agora sabendo que n\xE3o deve confiar
-    em qualquer contrato\",\"parentUIDs\":[1],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Narrador\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":271,\"yPos\":521},\"ID\":3,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Para
-    al\xE9m disso, ele resolveu que daria uma nova chance ao que realmente importa,
-    e que iniciar\xE1 um novo caminho. Dessa vez, sem contratos.\",\"parentUIDs\":[2],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Narrador\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0}]}"
+    em qualquer contrato\",\"parentUIDs\":[1],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Narrador\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":160,\"yPos\":452},\"ID\":3,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"De
+    volta \xE0 realidade, sabia que jamais cairia em outra armadilha. Dessa vez,
+    daria valor ao que realmente importava e come\xE7aria de novo, sem amarras.\",\"parentUIDs\":[2],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Narrador\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0}]}"
   saveVersion: 110
   DefaultName: 
   DefaultSprite: {fileID: 0}
