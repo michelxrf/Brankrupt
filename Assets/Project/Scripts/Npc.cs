@@ -128,6 +128,10 @@ public class Npc : MonoBehaviour
             disabled = true;
             interaction_tip.SetActive(false);
         }
+        else if(playerInRange && !disabled)
+        {
+            can_interact = true;
+        }
     }
 
     public void changeConversationIndexTo(int index)

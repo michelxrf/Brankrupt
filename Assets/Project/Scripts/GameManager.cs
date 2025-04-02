@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public bool is_paused;
     [HideInInspector] public bool player_busy;
     [HideInInspector] public player_controller player;
+    [HideInInspector] public bool isGoodEnding;
 
     [Header("Inventory")]
     [SerializeField] public List<string> inventory = new List<string>();
