@@ -101,7 +101,6 @@ public class GameManager : MonoBehaviour
         updatedNpc.dialog_index = dialogIndex;
 
         npcStates[id] = updatedNpc;
-        Debug.Log($"{npcStates[id].npcName} Updated");
     }
 
     private void Update()

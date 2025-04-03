@@ -77,4 +77,16 @@ public class DialogueHekper : MonoBehaviour
     {
         AudioManager.Instance.PlayDoor();
     }
+
+    public void BadEnd()
+    {
+        GameManager.Instance.isGoodEnding = false;
+        CallTransition(18);
+    }
+
+    public void GoodEnd()
+    {
+        GameManager.Instance.isGoodEnding = true;
+        CallTransition(18);
+    }
 }
