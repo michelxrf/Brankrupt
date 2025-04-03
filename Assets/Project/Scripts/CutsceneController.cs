@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using DialogueEditor;
 using TMPro;
-using TMPro.EditorUtilities;
-using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.Video;
 
