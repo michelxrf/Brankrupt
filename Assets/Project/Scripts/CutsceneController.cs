@@ -18,6 +18,8 @@ public class CutsceneController : MonoBehaviour
     [SerializeField] private TMP_Text badEndingText;
     [SerializeField] private GameObject backToMenuButton;
     [SerializeField] private AudioSource bgm;
+    [SerializeField] private AudioSource goodEndingMend;
+    [SerializeField] private AudioSource badEndingMend;
 
     public bool isGoodEnding = false;
 
@@ -59,6 +61,8 @@ public class CutsceneController : MonoBehaviour
 
     private IEnumerator FadeVideoToBlack(VideoPlayer vp)
     {
+        float audioFixStartingVolume = goodEndingMend.volume;
+
         float transitionAlpha = vp.targetCameraAlpha;
         float startAlpha = 1f;
 
@@ -66,11 +70,17 @@ public class CutsceneController : MonoBehaviour
         {
             float normalizedTime = t / (fadeDuration / 3f);
             transitionAlpha = Mathf.Lerp(startAlpha, 0, normalizedTime);
+
+            goodEndingMend.volume = audioFixStartingVolume * transitionAlpha;
+            badEndingMend.volume = audioFixStartingVolume * transitionAlpha;
+
             vp.targetCameraAlpha = transitionAlpha;
             yield return null;
         }
 
         vp.targetCameraAlpha = 0f;
+        badEndingMend.volume = 0f;
+        goodEndingMend.volume = 0f;
 
         if (isGoodEnding)
         {
@@ -103,10 +113,12 @@ public class CutsceneController : MonoBehaviour
     {
         if (isGoodEnding)
         {
+            goodEndingMend.Play();
             StartCoroutine(FadeVideoToBlack(goodEndClip));
         }
         else
         {
+            badEndingMend.Play();
             StartCoroutine(FadeVideoToBlack(badEndClip));
         }
     }
