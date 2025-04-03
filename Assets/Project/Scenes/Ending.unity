@@ -731,10 +731,7 @@ MonoBehaviour:
     lento e implac\xE1vel.\n\nSussurros se tornaram gritos. Eram os lamentos daqueles
     que, como ele, foram seduzidos por promessas vazias e condenados ao tormento
     eterno. Sombras retorcidas o puxavam para o abismo, enquanto arrependimentos
-    tardios queimavam sua mente.\n\nSombras retorcidas o puxavam para o abismo, enquanto
-    arrependimentos tardios queimavam sua mente.\n\nDe volta \xE0 realidade, sabia
-    que jamais cairia em outra armadilha. Dessa vez, daria valor ao que realmente
-    importava e come\xE7aria de novo, sem amarras."
+    tardios queimavam sua mente."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 39c0c4761b250494baffa7c36218e35a, type: 2}
   m_sharedMaterial: {fileID: -14134686897067135, guid: 39c0c4761b250494baffa7c36218e35a, type: 2}
@@ -1795,14 +1792,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Correntes emergiram do ch\xE3o, enla\xE7ando o Auditor enquanto ele se
+  m_text: "Correntes emergiram do ch\xE3o, acorrentando o Auditor enquanto ele se
     debatia. Seu fracasso tinha um pre\xE7o. Momom observava impass\xEDvel enquanto
     ele era arrastado para as profundezas do inferno.\n\nAlfred apenas assistiu.
-    A culpa se dissipava, substitu\xEDda por algo que h\xE1 muito esquecera: esperan\xE7a.
-    Sua vida ainda podia ser reconstru\xEDda.\n\nAlfred foi capaz de retornar para
-    sua realidade, agora sabendo que n\xE3o deve confiar em qualquer contrato.\n\nDe
-    volta \xE0 realidade, sabia que jamais cairia em outra armadilha. Dessa vez,
-    daria valor ao que realmente importava e come\xE7aria de novo, sem amarras."
+    Enquanto o medo se dissipava, substitu\xEDdo por algo que h\xE1 muito esquecera:
+    esperan\xE7a. Sua vida ainda podia ser reconstru\xEDda.\n\nDe volta \xE0 realidade,
+    poderia valorizar ao que realmente importava e come\xE7aria de novo, sem amarras."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 39c0c4761b250494baffa7c36218e35a, type: 2}
   m_sharedMaterial: {fileID: -14134686897067135, guid: 39c0c4761b250494baffa7c36218e35a, type: 2}
