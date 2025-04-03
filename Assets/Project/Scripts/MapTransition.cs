@@ -36,7 +36,6 @@ public class MapTransition : MonoBehaviour
     private void SaveTransitionState()
     {
         GameManager.Instance.transitionStates[id] = isEnabled;
-        Debug.Log($"Transition {gameObject.name} saved");
     }
 
     // Update is called once per frame

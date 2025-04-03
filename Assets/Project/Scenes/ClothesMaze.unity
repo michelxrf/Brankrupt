@@ -18158,6 +18158,10 @@ PrefabInstance:
       propertyPath: m_Acceleration
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 7606349513663984080, guid: c14ecefd91fab134ea0c13cd183c6af7, type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8112547879776410618, guid: c14ecefd91fab134ea0c13cd183c6af7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.31
