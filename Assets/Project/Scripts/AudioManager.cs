@@ -56,4 +56,8 @@ public class AudioManager : MonoBehaviour
         lowSanity.Stop();
     }
 
+    public void StopAmbiance()
+    {
+        ambiance.Stop();
+    }
 }
