@@ -17,6 +17,7 @@ public class CutsceneController : MonoBehaviour
     [SerializeField] private TMP_Text goodEndingText;
     [SerializeField] private TMP_Text badEndingText;
     [SerializeField] private GameObject backToMenuButton;
+    [SerializeField] private AudioSource bgm;
 
     public bool isGoodEnding = false;
 
@@ -40,6 +41,8 @@ public class CutsceneController : MonoBehaviour
 
     private IEnumerator FadeFromBlack(TMP_Text textBox)
     {
+        bgm.Play();
+
         Color panelColor = textBox.color;
         float startAlpha = 0f;
 
@@ -104,7 +107,7 @@ public class CutsceneController : MonoBehaviour
         }
         else
         {
-            StartCoroutine(FadeFromBlack(badEndingText));
+            StartCoroutine(FadeVideoToBlack(badEndClip));
         }
     }
 }
