@@ -5747,12 +5747,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83189876d4d389f43b7dd2e925aa112e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentIDCounter: 12
-  json: "{\"Options\":[{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":2}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":84,\"yPos\":240},\"ID\":1,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Ainda
-    n\xE3o.\",\"parentUIDs\":[0],\"SpeechUID\":-1},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":445,\"yPos\":239},\"ID\":11,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Estou
-    com ele\",\"parentUIDs\":[0],\"SpeechUID\":-1}],\"Parameters\":[{\"__type\":\"EditableBoolParameter:#DialogueEditor\",\"ParameterName\":\"Item\\/cristal\",\"BoolValue\":false}],\"SpeechNodes\":[{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[{\"__type\":\"EditableBoolCondition:#DialogueEditor\",\"ParameterName\":\"Item\\/cristal\",\"CheckType\":0,\"RequiredValue\":false}],\"NodeUID\":1},{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[{\"__type\":\"EditableBoolCondition:#DialogueEditor\",\"ParameterName\":\"Item\\/cristal\",\"CheckType\":0,\"RequiredValue\":true}],\"NodeUID\":11}],\"EditorInfo\":{\"isRoot\":true,\"xPos\":81.5,\"yPos\":102},\"ID\":0,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Achou
-    o amuleto?\",\"parentUIDs\":[],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Auditor\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":81,\"yPos\":343},\"ID\":2,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Voc\xEA
-    tem pouco tempo.\",\"parentUIDs\":[1],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Auditor\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0}]}"
+  CurrentIDCounter: 20
+  json: "{\"Options\":[{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":2}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":53.5,\"yPos\":-76},\"ID\":1,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Ainda
+    n\xE3o.\",\"parentUIDs\":[0],\"SpeechUID\":-1},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":12}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":438.5,\"yPos\":-94},\"ID\":11,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Estou
+    com ele\",\"parentUIDs\":[0],\"SpeechUID\":-1},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":330,\"yPos\":528},\"ID\":18,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Encostar
+    o amuleto no Auditor\",\"parentUIDs\":[17],\"SpeechUID\":-1},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":569,\"yPos\":529},\"ID\":19,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Entregar
+    o amuleto para o auditor\",\"parentUIDs\":[17],\"SpeechUID\":-1}],\"Parameters\":[{\"__type\":\"EditableBoolParameter:#DialogueEditor\",\"ParameterName\":\"Item\\/cristal\",\"BoolValue\":false}],\"SpeechNodes\":[{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[{\"__type\":\"EditableBoolCondition:#DialogueEditor\",\"ParameterName\":\"Item\\/cristal\",\"CheckType\":0,\"RequiredValue\":false}],\"NodeUID\":1},{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[{\"__type\":\"EditableBoolCondition:#DialogueEditor\",\"ParameterName\":\"Item\\/cristal\",\"CheckType\":0,\"RequiredValue\":true}],\"NodeUID\":11}],\"EditorInfo\":{\"isRoot\":true,\"xPos\":51,\"yPos\":-214},\"ID\":0,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Achou
+    o amuleto?\",\"parentUIDs\":[],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Auditor\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":50.5,\"yPos\":27},\"ID\":2,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Voc\xEA
+    tem pouco tempo.\",\"parentUIDs\":[1],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Auditor\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":13}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":445,\"yPos\":18},\"ID\":12,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Vamos,
+    me entregue o amuleto, e podemos conversar sobre a sua vida.\",\"parentUIDs\":[11],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Auditor\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":16}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":443,\"yPos\":153},\"ID\":13,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Voc\xEA
+    me garante, que eu terei uma segunda chance para seguir com a minha vida se eu
+    te entregar o amuleto?\",\"parentUIDs\":[12],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Alfred\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":17}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":441,\"yPos\":287},\"ID\":16,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Sim,
+    claro. Se n\xE3o me entregar estar\xE1 fadado ao caos eterno.\",\"parentUIDs\":[13],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Auditor\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":18},{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":19}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":437,\"yPos\":408},\"ID\":17,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Preciso
+    tomar uma decis\xE3o. Escutar o meu pai ou entregar o amuleto?\",\"parentUIDs\":[16],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Alfred\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0}]}"
   saveVersion: 110
   DefaultName: 
   DefaultSprite: {fileID: 0}
@@ -5762,6 +5769,12 @@ MonoBehaviour:
   - {fileID: 1933596106}
   - {fileID: 1933596105}
   - {fileID: 1933596107}
+  - {fileID: 1933596109}
+  - {fileID: 1933596108}
+  - {fileID: 1933596110}
+  - {fileID: 1933596113}
+  - {fileID: 1933596112}
+  - {fileID: 1933596111}
   ContinueFont: {fileID: 0}
   EndConversationFont: {fileID: 0}
   Event:
@@ -7561,6 +7574,12 @@ GameObject:
   - component: {fileID: 1933596106}
   - component: {fileID: 1933596105}
   - component: {fileID: 1933596107}
+  - component: {fileID: 1933596109}
+  - component: {fileID: 1933596108}
+  - component: {fileID: 1933596110}
+  - component: {fileID: 1933596113}
+  - component: {fileID: 1933596112}
+  - component: {fileID: 1933596111}
   m_Layer: 0
   m_Name: ConversationEventInfo
   m_TagString: Untagged
@@ -7658,6 +7677,120 @@ MonoBehaviour:
   NodeID: 11
   TMPFont: {fileID: 0}
   Icon: {fileID: 0}
+  Audio: {fileID: 0}
+--- !u!114 &1933596108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933596102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00abedce3cdbbba46bf2d86c9518c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
+  NodeID: 13
+  TMPFont: {fileID: 0}
+  Icon: {fileID: 21300000, guid: ff82937e31756ae49950016412f3dfa5, type: 3}
+  Audio: {fileID: 0}
+--- !u!114 &1933596109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933596102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00abedce3cdbbba46bf2d86c9518c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
+  NodeID: 12
+  TMPFont: {fileID: 0}
+  Icon: {fileID: 21300000, guid: f3484d56b36e9a047b647179395b569b, type: 3}
+  Audio: {fileID: 0}
+--- !u!114 &1933596110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933596102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00abedce3cdbbba46bf2d86c9518c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
+  NodeID: 16
+  TMPFont: {fileID: 0}
+  Icon: {fileID: 21300000, guid: f3484d56b36e9a047b647179395b569b, type: 3}
+  Audio: {fileID: 0}
+--- !u!114 &1933596111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933596102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00abedce3cdbbba46bf2d86c9518c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
+  NodeID: 19
+  TMPFont: {fileID: 0}
+  Icon: {fileID: 0}
+  Audio: {fileID: 0}
+--- !u!114 &1933596112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933596102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00abedce3cdbbba46bf2d86c9518c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
+  NodeID: 18
+  TMPFont: {fileID: 0}
+  Icon: {fileID: 0}
+  Audio: {fileID: 0}
+--- !u!114 &1933596113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933596102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00abedce3cdbbba46bf2d86c9518c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
+  NodeID: 17
+  TMPFont: {fileID: 0}
+  Icon: {fileID: 21300000, guid: ff82937e31756ae49950016412f3dfa5, type: 3}
   Audio: {fileID: 0}
 --- !u!1001 &1955830603
 PrefabInstance:
