@@ -11,6 +11,11 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject helpButton;
     [SerializeField] GameObject helpText;
 
+    private void Awake()
+    {
+        AudioManager.Instance.PlayTheme();
+    }
+
     public void Start()
     {
         helpText.SetActive(false);
@@ -29,6 +34,12 @@ public class MainMenu : MonoBehaviour
     {
         if(sceneIndex < 0)
             sceneIndex = 0;
+
+        if (sceneIndex != 19)
+        {
+            AudioManager.Instance.StopTheme();
+            AudioManager.Instance.PlayAmbiance();
+        }
 
         SceneManager.LoadScene(sceneIndex);
     }

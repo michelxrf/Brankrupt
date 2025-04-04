@@ -6,6 +6,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] private AudioSource ambiance;
+    [SerializeField] private AudioSource menuTheme;
     [SerializeField] private AudioSource doorOpen;
     [SerializeField] private AudioSource lowSanity;
     [SerializeField] private float lowSanityInitVolume;
@@ -59,5 +60,22 @@ public class AudioManager : MonoBehaviour
     public void StopAmbiance()
     {
         ambiance.Stop();
+    }
+
+    public void PlayAmbiance()
+    {
+        ambiance.Play();
+    }
+
+    public void PlayTheme()
+    {
+        if (!menuTheme.isPlaying)
+            menuTheme.Play();
+    }
+
+    public void StopTheme()
+    {
+        Debug.Log("Stop");
+        menuTheme.Stop();
     }
 }
