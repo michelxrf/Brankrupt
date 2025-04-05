@@ -1571,7 +1571,6 @@ MonoBehaviour:
   bgm: {fileID: 1975325290}
   goodEndingMend: {fileID: 1578124213}
   badEndingMend: {fileID: 1345232594}
-  isGoodEnding: 1
 --- !u!82 &1975325290
 AudioSource:
   m_ObjectHideFlags: 0
