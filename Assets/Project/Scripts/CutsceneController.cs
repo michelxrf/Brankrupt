@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using DialogueEditor;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Video;
 
 public class CutsceneController : MonoBehaviour
 {
     [SerializeField] private float fadeDuration;
-    [SerializeField] private VideoPlayer goodEndClip;
-    [SerializeField] private VideoPlayer badEndClip;
-    [SerializeField] private NPCConversation goodEndDialog;
-    [SerializeField] private NPCConversation badEndDialog;
+    [SerializeField] private GameObject goodEndAnim;
+    [SerializeField] private GameObject badEndAnim;
     [SerializeField] private TMP_Text goodEndingText;
     [SerializeField] private TMP_Text badEndingText;
     [SerializeField] private GameObject backToMenuButton;
@@ -19,17 +19,17 @@ public class CutsceneController : MonoBehaviour
     [SerializeField] private AudioSource goodEndingMend;
     [SerializeField] private AudioSource badEndingMend;
 
-    public bool isGoodEnding = false;
+    private bool isGoodEnding = false;
+    private AnimatorStateInfo stateInfo;
+    private Animator anim;
+    private bool finishedAnim = false;
 
     private void Awake()
     {
-        goodEndClip.loopPointReached += OnVideoEnd;
-        badEndClip.loopPointReached += OnVideoEnd;
-
-        goodEndClip.Prepare();
-        badEndClip.Prepare();
-
         backToMenuButton.SetActive(false);
+        goodEndAnim.SetActive(false);
+        badEndAnim.SetActive(false);
+
         goodEndingText.color = new Color(goodEndingText.color.r, goodEndingText.color.g, goodEndingText.color.b, 0f);
         badEndingText.color = new Color(goodEndingText.color.r, goodEndingText.color.g, goodEndingText.color.b, 0f);
 
@@ -57,11 +57,11 @@ public class CutsceneController : MonoBehaviour
         backToMenuButton.SetActive(true);
     }
 
-    private IEnumerator FadeVideoToBlack(VideoPlayer vp)
+    private IEnumerator FadeVideoToBlack(Image vp)
     {
         float audioFixStartingVolume = goodEndingMend.volume;
 
-        float transitionAlpha = vp.targetCameraAlpha;
+        float transitionAlpha = vp.color.a;
         float startAlpha = 1f;
 
         for (float t = 0; t < (fadeDuration / 3f); t += Time.deltaTime)
@@ -72,11 +72,11 @@ public class CutsceneController : MonoBehaviour
             goodEndingMend.volume = audioFixStartingVolume * transitionAlpha;
             badEndingMend.volume = audioFixStartingVolume * transitionAlpha;
 
-            vp.targetCameraAlpha = transitionAlpha;
+            vp.color = new Color(vp.color.r, vp.color.g, vp.color.b, transitionAlpha);
             yield return null;
         }
 
-        vp.targetCameraAlpha = 0f;
+        vp.color = new Color(vp.color.r, vp.color.g, vp.color.b, 0f);
         badEndingMend.volume = 0f;
         goodEndingMend.volume = 0f;
 
@@ -94,11 +94,24 @@ public class CutsceneController : MonoBehaviour
     {
         if (isGoodEnding)
         {
-            goodEndClip.Play();
+            goodEndAnim.SetActive(true);
+            anim = goodEndAnim.GetComponent<Animator>();
         }
         else
         {
-            badEndClip.Play();
+            badEndAnim.SetActive(true);
+            anim = badEndAnim.GetComponent<Animator>();
+        }
+    }
+
+    private void Update()
+    {
+        stateInfo = anim.GetCurrentAnimatorStateInfo(0);
+
+        if (stateInfo.normalizedTime >= 1f && !finishedAnim)
+        {
+            finishedAnim = true;
+            OnAnimEnd();
         }
     }
 
@@ -107,17 +120,17 @@ public class CutsceneController : MonoBehaviour
         GameManager.Instance.BackToMenu();
     }
 
-    private void OnVideoEnd(VideoPlayer vp)
+    private void OnAnimEnd()
     {
         if (isGoodEnding)
         {
             goodEndingMend.Play();
-            StartCoroutine(FadeVideoToBlack(goodEndClip));
+            StartCoroutine(FadeVideoToBlack(goodEndAnim.GetComponent<Image>()));
         }
         else
         {
             badEndingMend.Play();
-            StartCoroutine(FadeVideoToBlack(badEndClip));
+            StartCoroutine(FadeVideoToBlack(badEndAnim.GetComponent<Image>()));
         }
     }
 }
