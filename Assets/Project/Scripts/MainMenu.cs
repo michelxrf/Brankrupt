@@ -13,11 +13,13 @@ public class MainMenu : MonoBehaviour
 
     private void Awake()
     {
-        AudioManager.Instance.PlayTheme();
+        
     }
 
     public void Start()
     {
+        AudioManager.Instance.PlayTheme();
+
         helpText.SetActive(false);
 
         if (GameSaver.Instance.lastPlayedChapter == -1)

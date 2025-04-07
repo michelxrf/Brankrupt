@@ -24,6 +24,7 @@ public class AudioManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(this);
             lowSanityInitVolume = lowSanity.volume;
+            lowSanity.volume = 0f;
         }
     }
     public void PlayDoor()
