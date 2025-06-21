@@ -1,6 +1,10 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
+/// <summary>
+/// controls the flashlight effects and behavior
+/// </summary>
 public class FlashlightMouse : MonoBehaviour
 {
     [SerializeField] LayerMask lightBlockLayerMask;
@@ -22,7 +26,6 @@ public class FlashlightMouse : MonoBehaviour
         flashlightInitialPos = transform.localPosition;
     }
 
-    // Start is called before the first frame update
     private void Start()
     {
         Switch_light(GameManager.Instance.flashlightOn && GameManager.Instance.hasFlashlight);
@@ -48,22 +51,28 @@ public class FlashlightMouse : MonoBehaviour
     }
     private void Drain_Battery()
     {
+        // calculates an apply the battery drain while the flashlight is on
+
         if (is_on)
         {
             
             Mathf.Clamp(GameManager.Instance.battery -= Time.deltaTime * GameManager.Instance.batteryDrain, 0f, GameManager.Instance.maxBattery);
 
+            // turns the flashlight off when out of battery
             if (GameManager.Instance.battery <= 0)
             {
                 Switch_light(false);
             }
         }
 
+        // updates the battery indicator on screen
         GameManager.Instance.hud.UpdateBattery(GameManager.Instance.battery);
     }
 
     private void Process_Input()
     {
+        // watches for input to toggle flashlight on and off
+
         if (Input.GetKeyDown(KeyCode.F))
         {
             click.Play();
@@ -74,6 +83,8 @@ public class FlashlightMouse : MonoBehaviour
 
     private void Switch_light(bool new_state)
     {
+        // does the turning on and off of the light FXs
+
         is_on = new_state;
         GameManager.Instance.flashlightOn = new_state;
         lightCollider.enabled = new_state;
@@ -84,6 +95,8 @@ public class FlashlightMouse : MonoBehaviour
 
     private void flipFlashlight(Vector2 direction)
     {
+        // changes the flashlight origin according to the players facing direction
+
         if (direction.x < 0f)
         {
             transform.localPosition = new Vector2(-flashlightInitialPos.x, flashlightInitialPos.y);
@@ -96,6 +109,10 @@ public class FlashlightMouse : MonoBehaviour
 
     private void PositionLightAtMouse()
     {
+        // makes the actual light goes toward the mouse position and direct the light beam
+        // it does a raycast from the flashlight origin to the mouse pos to limit its range
+        // and prevent the light from going through walls
+ 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0f;
 

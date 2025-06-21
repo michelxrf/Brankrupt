@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
+/// <summary>
+/// singleton that controls the saving and loading of the player progress to file
+/// </summary>
 public class GameSaver : MonoBehaviour
 {
     public static GameSaver Instance { get; private set; }
@@ -27,6 +30,8 @@ public class GameSaver : MonoBehaviour
 
     public void SaveGame(int value)
     {
+        // saves the file
+
         try
         {
             lastPlayedChapter = value;
@@ -44,6 +49,8 @@ public class GameSaver : MonoBehaviour
 
     public int LoadGame()
     {
+        // loads the file
+
         try
         {
             if (File.Exists(savePath))
@@ -68,6 +75,8 @@ public class GameSaver : MonoBehaviour
 
     public bool HasSaveGame()
     {
+        // verify if theres a save file
+
         return File.Exists(savePath);
     }
 }

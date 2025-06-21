@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// VFX for creating a camera shake based on the player's sanity
+/// intended to make player feel the effects the characters losing health
+/// </summary>
 public class ScreenShake : MonoBehaviour
 {
     private Camera _camera;
@@ -25,7 +29,7 @@ public class ScreenShake : MonoBehaviour
         
         float sanityPercentage = GameManager.Instance.currentSanityLevel/GameManager.Instance.maxSanityLevel;
 
-        // soh comeca a tremer depois do limite de sanidade ser alcancado
+        // starts shaking after the minimal treshold is passed
         if (sanityPercentage < sanityThreshold)
         {
             float offsetX = (float)(random.NextDouble() * 2 - 1) * intesity * Mathf.Pow((1 - sanityPercentage), 2);

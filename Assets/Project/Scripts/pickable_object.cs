@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// used to mkae simple objects the player would pick from the ground
+/// this was an initial concept that we discarded
+/// we prefered to give player the items through dialog interactions
+/// </summary>
 public class pickable_object : MonoBehaviour
 {
     [SerializeField] string item_name;

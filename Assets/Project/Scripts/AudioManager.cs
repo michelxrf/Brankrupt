@@ -3,6 +3,18 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+// ---
+// DISCLAIMER
+// Many audio sources would be much better if they were part of the object they belong to
+// like the doors should be part of the transitions
+// but I decided to centralize them in this singleton for easier access of our audio designer
+// we didn`t had a picked audio designer but I knew it was going to be someone with almost no Unity experience
+// so I intended to make it the easiest as possible to slot in the audios
+// ---
+/// <summary>
+/// Controls all the audio calls in game
+/// it was made a singleton so the ambience would keep it`s track progress between scenes
+/// </summary>
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] private AudioSource ambiance;

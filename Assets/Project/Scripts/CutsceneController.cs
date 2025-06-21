@@ -7,6 +7,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
+/// <summary>
+/// does a script controlled animation of the game's ending cutscene
+/// fading the in and out video, text, audio and back button
+/// </summary>
 public class CutsceneController : MonoBehaviour
 {
     [SerializeField] private float fadeDuration;
@@ -33,7 +37,6 @@ public class CutsceneController : MonoBehaviour
         goodEndingText.color = new Color(goodEndingText.color.r, goodEndingText.color.g, goodEndingText.color.b, 0f);
         badEndingText.color = new Color(goodEndingText.color.r, goodEndingText.color.g, goodEndingText.color.b, 0f);
 
-        // destroi os singletons que controlam o jogo
         AudioManager.Instance.StopAmbiance();
 
         isGoodEnding = GameManager.Instance.isGoodEnding;

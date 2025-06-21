@@ -4,6 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// This Singleton is meant to allow for the player character to transition between scenes
+/// It controls a fade effect and saves the keeps the destination position
+/// so the player is correctly positioned acording to the transition's desired pos
+/// </summary>
 public class TransitionManager : MonoBehaviour
 {
     public static TransitionManager Instance { get; private set; }
@@ -14,6 +19,7 @@ public class TransitionManager : MonoBehaviour
 
     private void Awake()
     {
+        // sets up as Singleton
 
         if (Instance != null && Instance != this)
         {
@@ -34,6 +40,8 @@ public class TransitionManager : MonoBehaviour
 
     private IEnumerator FadeFromBlack()
     {
+        // animates an effect of fading from a black screen
+
         Color panelColor = fadePanel.color;
         float startAlpha = 1f;
 
@@ -51,6 +59,8 @@ public class TransitionManager : MonoBehaviour
 
     private IEnumerator FadeToBlack()
     {
+        // animates the VFX of fading to a black screen
+
         Color panelColor = fadePanel.color;
         float startAlpha = 0f;
 
@@ -68,6 +78,8 @@ public class TransitionManager : MonoBehaviour
 
     public void TransitionTo(int scene_index, Vector2 position)
     {
+        // saves the position the player will be placed once they transition to another scene
+
         transitionToPosition = position;
         has_transitioned = true;
         StartCoroutine(TransitionTo(scene_index));
@@ -75,6 +87,8 @@ public class TransitionManager : MonoBehaviour
 
     public IEnumerator TransitionTo(int scene_index)
     {
+        // does the actual transitioning
+
         GameManager.Instance.is_paused = false;
         GameManager.Instance.player_busy = false;
 

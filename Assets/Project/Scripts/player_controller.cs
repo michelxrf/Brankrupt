@@ -2,9 +2,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Rendering.Universal;
 
+/// <summary>
+/// controls every aspect of the plyer character
+/// from input, to world interaction and movement
+/// </summary>
 public class player_controller : MonoBehaviour
 {
-
     [Header("General")]    
     [SerializeField] Rigidbody2D rb;
     Camera cam;
@@ -42,6 +45,9 @@ public class player_controller : MonoBehaviour
 
     private void Start()
     {
+        // once the level is loaded, if the player is coming from another room
+        // it will position the player in the spot where the transition should bring them
+
         if (TransitionManager.Instance.has_transitioned == true)
         {
             transform.position = TransitionManager.Instance.transitionToPosition;
@@ -55,6 +61,8 @@ public class player_controller : MonoBehaviour
     
     public void ChangeFlashlightAnim()
     {
+        // changes the player animation to the one where he has the flashlight or not
+
         if(GameManager.Instance.hasFlashlight)
         {
             animator.runtimeAnimatorController = withFlashlightAC;
@@ -67,6 +75,9 @@ public class player_controller : MonoBehaviour
 
     private void GetGlobalLight()
     {
+        // gets the room overall light, this is used to calculate players sanity
+        // if the room is bright enough, the player wont lose sanity at all
+
         GameObject[] objectsInScene = SceneManager.GetActiveScene().GetRootGameObjects();
 
         foreach(var obj in objectsInScene)
@@ -97,9 +108,9 @@ public class player_controller : MonoBehaviour
     {
         if(!GameManager.Instance.player_busy && !GameManager.Instance.is_paused)
         {
+            // player moves if not paused or interacting wiht something
             Move();
             LookAtMouse();
-            //PlayFootsteps();
         }
         else
         {
@@ -109,12 +120,16 @@ public class player_controller : MonoBehaviour
 
     private void Move()
     {
+        // manages player movement according to input
+
         walkDirection.x = Input.GetAxisRaw("Horizontal");
         walkDirection.y = Input.GetAxisRaw("Vertical");
         walkDirection.Normalize();
 
         animator.SetBool("is_walking", walkDirection.magnitude != 0);
 
+        // this was meant to make the player slower when walking backwards
+        // but this mechanic ended up not being used
         if (Mathf.Sign(mouseDirection.x) != Mathf.Sign(walkDirection.x))
         {
             currentSpeed = walkSpeed * speedMultiplierWhenBackwards;
@@ -127,19 +142,10 @@ public class player_controller : MonoBehaviour
         rb.velocity = walkDirection * currentSpeed * Time.deltaTime;
      }
 
-    private void PlayFootsteps()
-    {
-       if (footstepSFX.isPlaying == false && walkDirection.magnitude != 0)
-        {
-            float randomPtichModifier = Random.Range(.5f, 1.5f);
-            footstepSFX.pitch = randomPtichModifier;
-            footstepSFX.Play();
-        }
-
-        
-    }
     private void LookAtMouse()
     {
+        // makes the player look left or right acording to mouse pos
+
         Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0f;
 
@@ -160,10 +166,14 @@ public class player_controller : MonoBehaviour
 
     private void DrainSanity()
     {
+        // if the player is in a dark area they will lose sanity
+        // sanity works as a health system
+
         if (GameManager.Instance.is_paused || GameManager.Instance.player_busy)
             return;
 
-
+        // being close to the monster was meant to force the player to lose sanity even when in the light
+        // but we never really used it as the monster was already more dificult than we intended
         if (!illuminated && !GameManager.Instance.flashlightOn && !GameManager.Instance.closeToMonster)
         {
             GameManager.Instance.currentSanityLevel = Mathf.Clamp(GameManager.Instance.currentSanityLevel -= Time.deltaTime * GameManager.Instance.sanityDrain * GameManager.Instance.sanityMultiplier, 0f, GameManager.Instance.maxSanityLevel);
@@ -182,6 +192,10 @@ public class player_controller : MonoBehaviour
 
     public void GetIluminated(bool newState)
     {
+        // tests if the player is in a light or dark area
+        // it takes in consideration the room's overall luminosity
+        // and smaller light sources
+
         if (GameManager.Instance.currentGlobalLight > GameManager.Instance.globalLightTreshold)
             return;
 
@@ -198,17 +212,13 @@ public class player_controller : MonoBehaviour
     }
     private void ProcessInput()
     {
+        // takes in the player's input
+
         if(GameManager.Instance.player_busy || GameManager.Instance.is_paused)
         {
             rb.velocity = Vector3.zero;
             return;
         }
-
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            GameManager.Instance.Log_All_Items();
-        }
-        
     }
 
 }

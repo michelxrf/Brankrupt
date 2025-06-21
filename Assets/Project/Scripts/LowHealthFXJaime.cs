@@ -2,10 +2,13 @@ using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// script animation that makes the player vision worse as sanity goes down
+/// it toggles the visibility of a series of panels/frames overlayed
+/// making a contiunous fx of a blinking reddened view
+/// </summary>
 public class LowHealthFXJaime : MonoBehaviour
 {
-    // script para ativar camadas do VFX conforme a sanidade
-
     [SerializeField] private float spreadFactor = 0.02f;
     [SerializeField] private float maxAlpha = 1f;
     [SerializeField] private Image[] VfxPanes;

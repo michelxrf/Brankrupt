@@ -79,7 +79,7 @@ namespace DialogueEditor
         private SpeechNode m_currentSpeech;
         private OptionNode m_selectedOption;
 
-        public Npc conversingNpc;
+        public Interaction conversingNpc;
 
         // Selection options
         private List<UIConversationButton> m_uiOptions;
@@ -147,7 +147,7 @@ namespace DialogueEditor
         // Public functions
         //--------------------------------------
 
-        public void StartConversation(NPCConversation conversation, Npc npc)
+        public void StartConversation(NPCConversation conversation, Interaction npc)
         {
             conversingNpc = npc;
 

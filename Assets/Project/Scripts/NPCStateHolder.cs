@@ -1,5 +1,10 @@
 using UnityEngine;
 
+/// <summary>
+/// this class is used to hold the state of interactables between rooms
+/// this is saved to a singleton and loaded as the player moved between rooms
+/// this way the player could move between scenes the objects will remember their interactions
+/// </summary>
 public class NPCStateHolder
 {
     public int id = -1;

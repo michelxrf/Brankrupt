@@ -7,6 +7,11 @@ using Unity.VisualScripting;
 using UnityEngine.AI;
 using NavMeshPlus.Components;
 
+/// <summary>
+/// searches through every single light source object in scene
+/// to add to them the required components
+/// so the lights can interact with plauer character and mosnter
+/// </summary>
 public class LightActivator : MonoBehaviour
 {
     [SerializeField] float obstacleSizeFactor = 1.2f;

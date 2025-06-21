@@ -4,6 +4,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// defines an inventory item
+/// will be part of player's inventory
+/// and shown on the inventory UI
+/// </summary>
 public class InventoryItemUI : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI itemName;

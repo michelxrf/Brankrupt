@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// handles the button press of a single button on the keypad
+/// </summary>
+
 public class KeypadButton : MonoBehaviour
 {
     [SerializeField] private int buttonValue;

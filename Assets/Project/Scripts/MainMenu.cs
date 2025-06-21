@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// controls the behavior of the main menu
+/// </summary>
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] int[] chaptersSceneIndex;
@@ -11,13 +14,10 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject helpButton;
     [SerializeField] GameObject helpText;
 
-    private void Awake()
-    {
-        
-    }
-
     public void Start()
     {
+        // playss theme song and sets up the menu UI
+
         AudioManager.Instance.PlayTheme();
 
         helpText.SetActive(false);
@@ -30,10 +30,14 @@ public class MainMenu : MonoBehaviour
 
     public void Continue()
     {
+        // loads the scene of the last game saved
+
         LoadScene(chaptersSceneIndex[GameSaver.Instance.lastPlayedChapter]);
     }
     public void LoadScene(int sceneIndex)
     {
+        // does the acutal scene loading
+
         if(sceneIndex < 0)
             sceneIndex = 0;
 
@@ -53,11 +57,8 @@ public class MainMenu : MonoBehaviour
 
     public void ToogleHelp()
     {
-        helpText.SetActive(!helpText.activeInHierarchy);
-    }
+        // toggles the game's help text
 
-    public void OpenUrl(string url)
-    {
-        Application.OpenURL(url);
+        helpText.SetActive(!helpText.activeInHierarchy);
     }
 }
