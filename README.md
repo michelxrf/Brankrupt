@@ -34,10 +34,10 @@ Developed in Unity as part of the Adventure Games class in the Digital Games pro
 
 Created by:
 
-- **Inara Carvalho** – Narrative Design [GitHub](https://github.com/InaraCarvalho),[Itch](https://itch.io/profile/whateverlize)
-- **Jaime Neto** – Art, Animation, Level Design [GitHub](https://github.com/synth-j4y),[Itch](https://j4im.itch.io/)
-- **Lucas Xavier** – Producer [GitHub](https://github.com/Kanzaww),[Itch](https://kanzaw.itch.io/)
-- **Michel Redmer** – Programming, Level Design [Website](https://sites.google.com/view/michelredmer/main),[GitHub](https://github.com/michelxrf),[Itch](https://friendlygecko.itch.io/)
+- **Inara Carvalho** – Narrative Design [GitHub](https://github.com/InaraCarvalho), [Itch](https://itch.io/profile/whateverlize)
+- **Jaime Neto** – Art, Animation, Level Design [GitHub](https://github.com/synth-j4y), [Itch](https://j4im.itch.io/)
+- **Lucas Xavier** – Producer [GitHub](https://github.com/Kanzaww), [Itch](https://kanzaw.itch.io/)
+- **Michel Redmer** – Programming, Level Design [Website](https://sites.google.com/view/michelredmer/main), [GitHub](https://github.com/michelxrf), [Itch](https://friendlygecko.itch.io/)
 - **Miguel Drygalla** – Theme Songs
 
 ---
